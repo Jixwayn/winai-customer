@@ -1,0 +1,102 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f9f9f9;
+}
+
+.layout {
+    position: relative;
+    width: 400px;
+    height: 500px;
+    border: 2px solid black;
+}
+
+.table {
+    position: absolute;
+    background-color: lightgray;
+    border: 1px solid black;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+.table:hover {
+    background-color: #87CEEB;
+}
+
+/* Define table positions and sizes */
+.table1 {
+    top: 30%;
+    left: 23%;
+    width: 9%;
+    height: 10%;
+}
+
+.table2 {
+    top: 40%;
+    left: 14%;
+    width: 18%;
+    height: 10%;
+}
+
+.table3 {
+    top: 50%;
+    left: 14%;
+    width: 18%;
+    height: 10%;
+}
+
+.table4 {
+    top: 60%;
+    left: 14%;
+    width: 18%;
+    height: 10%;
+}
+
+.table5 {
+    top: 20%;
+    left: 40%;
+    width: 9%;
+    height: 10%;
+}
+.table6 {
+    top: 30%;
+    left: 40%;
+    width: 9%;
+    height: 10%;
+}
+.table7 {
+    top: 40%;
+    left: 40%;
+    width: 9%;
+    height: 10%;
+}
+.table8 {
+    top: 50%;
+    left: 40%;
+    width: 9%;
+    height: 10%;
+}
+.table9 {
+    top: 60%;
+    left: 40%;
+    width: 9%;
+    height: 10%;
+}
+.table10 {
+    top: 20%;
+    left: 50%;
+    width: 9%;
+    height: 10%;
+}
+.table11 {
+    top: 20%;
+    left: 50%;
+    width: 9%;
+    height: 10%;
+}
