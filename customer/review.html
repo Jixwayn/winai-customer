@@ -5,6 +5,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Review - Winai's Shabu</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        .review-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    
+        .filters {
+            padding: 10px;
+        }
+    
+        .filter-group {
+            margin-bottom: 30px; /* เพิ่มระยะห่างระหว่างหมวดหมู่ */
+        }
+    
+        .filter-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+    
+        .rating {
+            display: flex;
+            align-items: center; /* จัดให้เนื้อหาอยู่กึ่งกลางแนวตั้ง */
+            gap: 20px; /* เพิ่มระยะห่างระหว่าง "ให้คะแนน" และปุ่ม */
+            margin: 10px 0;
+        }
+    
+        .rating span {
+            font-size: 16px; /* ขนาดตัวอักษรสำหรับ "ให้คะแนน" */
+            white-space: nowrap; /* ป้องกันคำแตกบรรทัด */
+        }
+    
+        .dropdown {
+            flex-grow: 1; /* ทำให้ปุ่มขยายความกว้างตามพื้นที่ที่เหลือ */
+            position: relative;
+        }
+    
+        .dropbtn {
+            width: 100%; /* ทำให้ปุ่มมีความยาวเต็มพื้นที่ของ dropdown */
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            padding: 10px;
+            width: 100%;
+        }
+    
+        .dropdown.show .dropdown-content {
+            display: block;
+        }
+    
+        .star {
+            margin: 0 5px;
+            font-size: 30px;
+            color: #ccc;
+            cursor: pointer;
+        }
+    
+        .star.selected {
+            color: gold;
+        }
+    
+        textarea {
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            resize: none;
+        }
+    
+        .submit-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+    
+        @media (max-width: 768px) {
+            .review-container {
+                padding: 10px;
+            }
+    
+            .dropbtn {
+                font-size: 14px;
+                padding: 8px;
+            }
+    
+            .star {
+                font-size: 24px;
+            }
+    
+            textarea {
+                font-size: 14px;
+            }
+        }
+    </style>
+    
 </head>
 <body>
     <div class="review-container">
@@ -12,115 +136,166 @@
         <div class="filters">
             <h2>Filters</h2>
 
-            <!-- คุณภาพอาหาร -->
             <div class="filter-group">
                 <label for="food-quality">คุณภาพอาหาร</label>
-                <label for="food-quality">เซตหมู</label>
+
+                <label for="food-set1">เซตหมู</label>
                 <div class="rating">
                     <span>ให้คะแนน: </span>
-                    <div class="stars">
-                        <span class="star" data-value="1">★</span>
-                        <span class="star" data-value="2">★</span>
-                        <span class="star" data-value="3">★</span>
-                        <span class="star" data-value="4">★</span>
-                        <span class="star" data-value="5">★</span>
+                    <div class="dropdown" id="food-set1-dropdown">
+                        <button class="dropbtn">เลือกคะแนน</button>
+                        <div class="dropdown-content">
+                            <span class="star" data-value="1">★</span>
+                            <span class="star" data-value="2">★</span>
+                            <span class="star" data-value="3">★</span>
+                            <span class="star" data-value="4">★</span>
+                            <span class="star" data-value="5">★</span>
+                        </div>
                     </div>
                 </div>
-                <label for="food-quality">เซตเนื้อ</label>
+
+                <label for="food-set2">เซตเนื้อ</label>
                 <div class="rating">
                     <span>ให้คะแนน: </span>
-                    <div class="stars">
-                        <span class="star" data-value="1">★</span>
-                        <span class="star" data-value="2">★</span>
-                        <span class="star" data-value="3">★</span>
-                        <span class="star" data-value="4">★</span>
-                        <span class="star" data-value="5">★</span>
+                    <div class="dropdown" id="food-set2-dropdown">
+                        <button class="dropbtn">เลือกคะแนน</button>
+                        <div class="dropdown-content">
+                            <span class="star" data-value="1">★</span>
+                            <span class="star" data-value="2">★</span>
+                            <span class="star" data-value="3">★</span>
+                            <span class="star" data-value="4">★</span>
+                            <span class="star" data-value="5">★</span>
+                        </div>
                     </div>
                 </div>
-                <label for="food-quality">เซตทะเล</label>
+
+                <label for="food-set3">เซตทะเล</label>
                 <div class="rating">
                     <span>ให้คะแนน: </span>
-                    <div class="stars">
-                        <span class="star" data-value="1">★</span>
-                        <span class="star" data-value="2">★</span>
-                        <span class="star" data-value="3">★</span>
-                        <span class="star" data-value="4">★</span>
-                        <span class="star" data-value="5">★</span>
+                    <div class="dropdown" id="food-set3-dropdown">
+                        <button class="dropbtn">เลือกคะแนน</button>
+                        <div class="dropdown-content">
+                            <span class="star" data-value="1">★</span>
+                            <span class="star" data-value="2">★</span>
+                            <span class="star" data-value="3">★</span>
+                            <span class="star" data-value="4">★</span>
+                            <span class="star" data-value="5">★</span>
+                        </div>
                     </div>
                 </div>
-                <label for="food-quality">เซตมังสวิรัติ</label>
+
+                <label for="food-set4">เซตมังสวิรัติ</label>
                 <div class="rating">
                     <span>ให้คะแนน: </span>
-                    <div class="stars">
-                        <span class="star" data-value="1">★</span>
-                        <span class="star" data-value="2">★</span>
-                        <span class="star" data-value="3">★</span>
-                        <span class="star" data-value="4">★</span>
-                        <span class="star" data-value="5">★</span>
+                    <div class="dropdown" id="food-set4-dropdown">
+                        <button class="dropbtn">เลือกคะแนน</button>
+                        <div class="dropdown-content">
+                            <span class="star" data-value="1">★</span>
+                            <span class="star" data-value="2">★</span>
+                            <span class="star" data-value="3">★</span>
+                            <span class="star" data-value="4">★</span>
+                            <span class="star" data-value="5">★</span>
+                        </div>
                     </div>
                 </div>
-                <label for="food-quality">เซตMix</label>
+
+                <label for="food-set5">เซตMix</label>
                 <div class="rating">
                     <span>ให้คะแนน: </span>
-                    <div class="stars">
-                        <span class="star" data-value="1">★</span>
-                        <span class="star" data-value="2">★</span>
-                        <span class="star" data-value="3">★</span>
-                        <span class="star" data-value="4">★</span>
-                        <span class="star" data-value="5">★</span>
+                    <div class="dropdown" id="food-set5-dropdown">
+                        <button class="dropbtn">เลือกคะแนน</button>
+                        <div class="dropdown-content">
+                            <span class="star" data-value="1">★</span>
+                            <span class="star" data-value="2">★</span>
+                            <span class="star" data-value="3">★</span>
+                            <span class="star" data-value="4">★</span>
+                            <span class="star" data-value="5">★</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- คุณภาพพนักงาน -->
             <div class="filter-group">
                 <label for="staff-quality">คุณภาพพนักงาน</label>
-                <label for="staff-quality">พนักงานต้อนรับ</label>
+
+                <label for="staff-reception">พนักงานต้อนรับ</label>
                 <div class="rating">
                     <span>ให้คะแนน: </span>
-                    <div class="stars">
-                        <span class="star" data-value="1">★</span>
-                        <span class="star" data-value="2">★</span>
-                        <span class="star" data-value="3">★</span>
-                        <span class="star" data-value="4">★</span>
-                        <span class="star" data-value="5">★</span>
+                    <div class="dropdown" id="staff-reception-dropdown">
+                        <button class="dropbtn">เลือกคะแนน</button>
+                        <div class="dropdown-content">
+                            <span class="star" data-value="1">★</span>
+                            <span class="star" data-value="2">★</span>
+                            <span class="star" data-value="3">★</span>
+                            <span class="star" data-value="4">★</span>
+                            <span class="star" data-value="5">★</span>
+                        </div>
                     </div>
                 </div>
-                <label for="staff-quality">พนักงานเสิร์ฟ</label>
+
+                <label for="staff-waiter">พนักงานเสิร์ฟ</label>
                 <div class="rating">
                     <span>ให้คะแนน: </span>
-                    <div class="stars">
-                        <span class="star" data-value="1">★</span>
-                        <span class="star" data-value="2">★</span>
-                        <span class="star" data-value="3">★</span>
-                        <span class="star" data-value="4">★</span>
-                        <span class="star" data-value="5">★</span>
+                    <div class="dropdown" id="staff-waiter-dropdown">
+                        <button class="dropbtn">เลือกคะแนน</button>
+                        <div class="dropdown-content">
+                            <span class="star" data-value="1">★</span>
+                            <span class="star" data-value="2">★</span>
+                            <span class="star" data-value="3">★</span>
+                            <span class="star" data-value="4">★</span>
+                            <span class="star" data-value="5">★</span>
+                        </div>
                     </div>
                 </div>
-                <label for="staff-quality">พนักงานทำความสะอาด</label>
+
+                <label for="staff-cleaner">พนักงานทำความสะอาด</label>
                 <div class="rating">
                     <span>ให้คะแนน: </span>
-                    <div class="stars">
-                        <span class="star" data-value="1">★</span>
-                        <span class="star" data-value="2">★</span>
-                        <span class="star" data-value="3">★</span>
-                        <span class="star" data-value="4">★</span>
-                        <span class="star" data-value="5">★</span>
+                    <div class="dropdown" id="staff-cleaner-dropdown">
+                        <button class="dropbtn">เลือกคะแนน</button>
+                        <div class="dropdown-content">
+                            <span class="star" data-value="1">★</span>
+                            <span class="star" data-value="2">★</span>
+                            <span class="star" data-value="3">★</span>
+                            <span class="star" data-value="4">★</span>
+                            <span class="star" data-value="5">★</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- เขียนรีวิว -->
             <div class="review-text">
                 <label for="review">เขียนรีวิวหลังใช้บริการ</label>
                 <textarea id="review" name="review" rows="5" placeholder="เขียนรีวิวของคุณที่นี่..."></textarea>
             </div>
 
-            <!-- ปุ่มยืนยัน -->
             <button type="submit" class="submit-button">ยืนยัน</button>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            dropdown.addEventListener('click', function(e) {
+                if (e.target.classList.contains('dropbtn')) {
+                    dropdown.classList.toggle('show');
+                }
+                if (e.target.classList.contains('star')) {
+                    const value = e.target.getAttribute('data-value');
+                    const dropdownContent = e.target.closest('.dropdown').querySelector('.dropdown-content');
+                    
+                    dropdownContent.querySelectorAll('.star').forEach(star => {
+                        if (star.getAttribute('data-value') <= value) {
+                            star.classList.add('selected');
+                        } else {
+                            star.classList.remove('selected');
+                        }
+                    });
+
+                    dropdown.querySelector('.dropbtn').textContent = `คะแนน: ${value}`;
+                    dropdown.classList.remove('show');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

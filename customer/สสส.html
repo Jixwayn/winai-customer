@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member & Payment Flow</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+        }
+        .container {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        .active {
+            display: block;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #f90;
+            color: #000;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #e68a00;
+        }
+        .card {
+            background-color: #222;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px auto;
+            max-width: 300px;
+        }
+        .dropdown {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #555;
+            border-radius: 4px;
+            background-color: #333;
+            color: #fff;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #f90;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- หน้าถามถึงบัตรสมาชิก -->
+    <div id="member-screen" class="container active">
+        <div class="card">
+            <h2>คุณไม่มีบัตรสมาชิก</h2>
+            <p>กรุณากรอกข้อมูล</p>
+            <input type="text" placeholder="ชื่อ" style="width: 100%; padding: 10px; margin-bottom: 10px;">
+            <input type="text" placeholder="รหัสผ่าน" style="width: 100%; padding: 10px; margin-bottom: 10px;">
+            <button class="btn" onclick="goToPayment()">ยืนยัน</button>
+        </div>
+    </div>
+
+    <!-- หน้าจ่ายเงิน -->
+    <div id="payment-screen" class="container">
+        <div class="card">
+            <h2>โต๊ะ: 10</h2>
+            <p>package: Regular</p>
+            <p>จำนวนคน: 8</p>
+            <p>ราคารวม: 12000</p>
+            <p>ส่วนลด: 0</p>
+            <p>ยอดสุทธิ: 12000</p>
+            <select id="payment-method" class="dropdown">
+                <option value="" disabled selected>เลือกวิธีการชำระเงิน</option>
+                <option value="QR Promptpay">QR Promptpay</option>
+                <option value="บัตรเครดิต / เดบิต">บัตรเครดิต / เดบิต</option>
+            </select>
+            <button class="btn" onclick="goToSuccess()">ยืนยัน</button>
+        </div>
+    </div>
+
+    <!-- หน้าชำระเงินสำเร็จ -->
+    <div id="success-screen" class="container">
+        <div class="card">
+            <span class="close" onclick="goHome()">X</span>
+            <h2>ชำระเงินสำเร็จ</h2>
+            <p>หมายเลขโต๊ะ: 10</p>
+            <p>จำนวนคน: 8</p>
+            <p>ราคาสุทธิ: 12000</p>
+        </div>
+    </div>
+
+    <script>
+        function goToPayment() {
+            document.getElementById("member-screen").classList.remove("active");
+            document.getElementById("payment-screen").classList.add("active");
+        }
+
+        function goToSuccess() {
+            const paymentMethod = document.getElementById("payment-method").value;
+            if (paymentMethod) {
+                document.getElementById("payment-screen").classList.remove("active");
+                document.getElementById("success-screen").classList.add("active");
+            } else {
+                alert("กรุณาเลือกวิธีการชำระเงิน");
+            }
+        }
+
+        function goHome() {
+            document.getElementById("success-screen").classList.remove("active");
+            document.getElementById("member-screen").classList.add("active");
+        }
+    </script>
+</body>
+</html>
