@@ -154,7 +154,7 @@
         function validateName() {
             const name = document.getElementById("name").value.trim();
             if (!name) {
-                document.getElementById("name-error").textContent = "กรุณากรอกชื่อ-นามสกุล";
+                document.getElementById("name-error").textContent = "กรุณากรอกชื่อและรหัสผ่าน";
             } else {
                 document.getElementById("name-error").textContent = "";
                 goToPayment();
@@ -180,7 +180,6 @@
     
         function goToSuccess() {
             const paymentMethod = document.getElementById("payment-method").value;
-            <a class="close-button" href="หน้าแรก.html">&times;</a>
             if (paymentMethod) {
                 window.location.href = "Receipt.html";
             } else {
