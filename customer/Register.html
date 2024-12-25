@@ -32,6 +32,16 @@
             margin-bottom: 15px;
         }
 
+        .form-group.flex-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .form-group.flex-row .form-group-inner {
+            flex: 1;
+        }
+
         label {
             display: block;
             margin-bottom: 5px;
@@ -48,10 +58,6 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
-        }
-
-        input[type="checkbox"] {
-            margin-right: 10px;
         }
 
         .birthdate-select {
@@ -91,27 +97,25 @@
     <div class="container">
         <h2>หน้าสมัครสมาชิก</h2>
         <form action="#" method="post">
-            <!-- คำนำหน้าชื่อ -->
-            <div class="form-group">
-                <label for="prefix">คำนำหน้าชื่อ</label>
-                <select id="prefix" name="prefix" required>
-                    <option value="" disabled selected></option>
-                    <option value="นาย">นาย</option>
-                    <option value="นาง">นาง</option>
-                    <option value="นางสาว">นางสาว</option>
-                </select>
-            </div>
-
-            <!-- ชื่อ -->
-            <div class="form-group">
-                <label for="firstName">*ชื่อ</label>
-                <input type="text" id="firstName" name="firstName" required>
-            </div>
-
-            <!-- นามสกุล -->
-            <div class="form-group">
-                <label for="lastName">*นามสกุล</label>
-                <input type="text" id="lastName" name="lastName" required>
+            <!-- คำนำหน้าชื่อ, ชื่อ, นามสกุล -->
+            <div class="form-group flex-row">
+                <div class="form-group-inner">
+                    <label for="prefix">คำนำหน้าชื่อ</label>
+                    <select id="prefix" name="prefix" required>
+                        <option value="" disabled selected></option>
+                        <option value="นาย">นาย</option>
+                        <option value="นาง">นาง</option>
+                        <option value="นางสาว">นางสาว</option>
+                    </select>
+                </div>
+                <div class="form-group-inner">
+                    <label for="firstName">*ชื่อ</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group-inner">
+                    <label for="lastName">*นามสกุล</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
             </div>
 
             <!-- ศาสนา -->
@@ -194,15 +198,12 @@
             <!-- เงื่อนไข -->
             <div class="form-group">
                 <input type="checkbox" id="terms1" name="terms1" required>
-                <label for="terms1" class="terms">ข้าพเจ้าได้อ่านทำความเข้าใจ และยอมรับข้อกำหนดและเงื่อนไขการใช้งานเว็บไซต์นี้ และรับทราบว่าบริษัทฯ เก็บรวบรวม ใช้ เปิดเผย และเก็บรักษาข้อมูลส่วนบุคคลของข้าพเจ้าตามที่กำหนดไว้ใน ประกาศความเป็นส่วนตัว</label>
+                <label for="terms1" class="terms">ข้าพเจ้าได้อ่าน ทำความเข้าใจ และยอมรับ ข้อกำหนดและเงื่อนไขการใช้งานเว็บไซต์ นี้ และรับทราบว่าบริษัทฯ เก็บรวบรวม ใช้ เปิดเผย และเก็บรักษาข้อมูลส่วนบุคคลของข้าพเจ้าตามที่ กำหนดไว้ใน ประกาศความเป็นส่วนตัวนี้</label>
                 <br>
                 <input type="checkbox" id="terms2" name="terms2">
-                <label for="terms2" class="terms">ข้าพเจ้ายินยอมให้บริษัทฯเก็บรวบรวมใช้ และเปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าสำหรับเสนอข่าวสาร โปรโมชั่น และสิทธิประโยชน์</label>
+                <label for="terms2" class="terms">ข้าพเจ้ายินยอมให้บริษัทฯ เก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าสำหรับ เสนอข่าวสารต่างๆ โปรโมชั่น สิทธิประโยชน์ สิทธิพิเศษ (แต่ไม่รวมถึงสิทธิพิเศษที่ถือเป็นคุณ แก่ลูกค้าเป็นหลัก เช่น คูปองส่วนลด หรือ คูปองแทนเงินสด เป็นต้น) รวมถึงข้อมูลเกี่ยวกับ ผลิตภัณฑ์และ/หรือบริการใหม่ๆ ของบริษัทฯ และบริษัทในเครือที่ข้าพเจ้าอาจสนใจ และ ยินยอมให้บริษัทฯ เปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าแก่บริษัทในเครือและผู้ให้บริการ ภายนอกสำหรับประมวลผลและวิเคราะห์ข้อมูล รวมถึงวิจัย ปรับปรุง และพัฒนาผลิตภัณฑ์ และ/หรือบริการของบริษัทฯ และบริษัทในเครือให้เหมาะสมกับความต้องการของข้าพเจ้า ทั้งนี้ การไม่ยินยอมในข้อนี้จะไม่กระทบสิทธิความยินยอมที่ท่านได้เคยให้ไว้ก่อนหน้านี้ เว้นแต่ท่านจะได้ใช้สิทธิขอถอนความยินยอมมาแล้ว</label>
             </div>
 
             <button type="submit">ยืนยัน</button>
         </form>
-    </div>
-</body>
 
-</html>
