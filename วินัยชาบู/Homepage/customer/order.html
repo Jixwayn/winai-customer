@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 10px 0;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .grid-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .grid-item img {
+            max-width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .grid-item p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer button {
+            background-color: #ff600f;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .footer button:hover {
+            background-color: #e6550e;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">โต๊ะ: 10</div>
+
+    <div class="grid-container">
+        <!-- ช่องรูปอาหาร -->
+        <div class="grid-item">
+            <img src="ฮ่องเต้น้อย.jpg" alt="อาหาร 1">
+            <p>อาหารจานที่ 1</p>
+        </div>
+        <div class="grid-item">
+            <img src="food2.jpg" alt="อาหาร 2">
+            <p>อาหารจานที่ 2</p>
+        </div>
+        <div class="grid-item">
+            <img src="food3.jpg" alt="อาหาร 3">
+            <p>อาหารจานที่ 3</p>
+        </div>
+        <div class="grid-item">
+            <img src="food4.jpg" alt="อาหาร 4">
+            <p>อาหารจานที่ 4</p>
+        </div>
+        <div class="grid-item">
+            <img src="ฮ่องเต้น้อย.jpg" alt="อาหาร 5">
+            <p>อาหารจานที่ 5</p>
+        </div>
+        <div class="grid-item">
+            <img src="food2.jpg" alt="อาหาร 6">
+            <p>อาหารจานที่ 6</p>
+        </div>
+        <div class="grid-item">
+            <img src="food3.jpg" alt="อาหาร 7">
+            <p>อาหารจานที่ 7</p>
+        </div>
+        <div class="grid-item">
+            <img src="food4.jpg" alt="อาหาร 8">
+            <p>อาหารจานที่ 8</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <button onclick="goToOrder()">ออเดอร์</button>
+        <button onclick="goToPayment()">จ่ายเงิน</button>
+    </div>
+
+    <script>
+        function goToOrder() {
+            // ลิงก์ไปยังหน้าดูออเดอร์
+            window.location.href = "order.html";
+        }
+
+        function goToPayment() {
+            // ลิงก์ไปยังหน้าชำระเงิน
+            window.location.href = "Register+payment+suc.html";
+        }
+    </script>
+</body>
+</html>
