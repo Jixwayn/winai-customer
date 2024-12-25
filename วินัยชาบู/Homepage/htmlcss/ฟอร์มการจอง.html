@@ -9,7 +9,7 @@
 <body>
 <div class="form-container">
     <h1>ฟอร์มการจอง</h1>
-    <form action="ตรวจสอบข้อมูลการจอง.html" method="GET">
+    <form action="ตรวจสอบข้อมูลการจอง.html" method="GET" onsubmit="return validateTime()">
         <label for="name">ชื่อ</label>
         <input type="text" id="name" name="name" placeholder="ชื่อ" value="" required>
         
@@ -17,10 +17,10 @@
         <input type="tel" id="phone" name="phone" placeholder="เบอร์โทรศัพท์" value="" required>
         
         <label for="people">จำนวนคน</label>
-        <input type="number" id="people" name="people" placeholder="จำนวนคน" min="1" max="20" value="" required>
+        <input type="number" id="people" name="people" placeholder="จำนวนคน" min="1" max="10" value="" required>
         
         <label for="time">เวลาในการจอง</label>
-        <input type="time" id="time" name="time" value="" required>
+        <input type="time" id="time" name="time" min="16:00" max="19:00" required>
         
         <div>
             <input type="checkbox" id="terms" name="terms" required>
@@ -32,12 +32,22 @@
 </div>
 
 <script>
-    // ฟังก์ชันสำหรับดึงข้อมูลจาก URL Parameters
+    // ดึงค่าจาก URL Parameters แล้วเติมลงในฟอร์ม
     const urlParams = new URLSearchParams(window.location.search);
     document.getElementById('name').value = urlParams.get('name') || '';
     document.getElementById('phone').value = urlParams.get('phone') || '';
     document.getElementById('people').value = urlParams.get('people') || '';
     document.getElementById('time').value = urlParams.get('time') || '';
+
+    // ตรวจสอบเวลาที่กรอกให้เป็นไปตามช่วง 16:00 ถึง 19:00
+    function validateTime() {
+        const timeInput = document.getElementById('time').value;
+        if (timeInput < "16:00" || timeInput > "19:00") {
+            alert("กรุณาเลือกเวลาในช่วง 16:00 ถึง 19:00");
+            return false; // ยกเลิกการส่งฟอร์ม
+        }
+        return true; // อนุญาตให้ส่งฟอร์ม
+    }
 </script>
 </body>
 </html>
