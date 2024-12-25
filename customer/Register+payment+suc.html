@@ -1,219 +1,190 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Member & Payment Flow</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fff;
-            color: #000;
-        }
-        .container {
-            display: none;
-            text-align: center;
-            padding: 20px;
-        }
-        .active {
-            display: block;
-        }
-        .btn {
-            padding: 10px 20px;
-            background-color: #f90;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background-color: #e68a00;
-        }
-        .card {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 10px auto;
-            max-width: 350px;
-            border: 2px solid #000; /* ขอบกรอบสีดำ */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เงาขอบ */
-        }
-        .dropdown, .input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #555;
-            border-radius: 4px;
-            background-color: #fff;
-            color: #000;
-            box-sizing: border-box;
-        }
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            color: #f90;
-            cursor: pointer;
-        }
-        .error {
-            color: #f00;
-            font-size: 0.9em;
-        }
-        .payment-item {
-            display: flex;
-            justify-content: space-between; /* กระจายพื้นที่ระหว่างแต่ละคอลัมน์ */
-            align-items: center; /* จัดตำแหน่งแนวตั้งให้อยู่ตรงกลาง */
-            margin-bottom: 10px; /* เพิ่มระยะห่างระหว่างบรรทัด */
-        }
 
-        .payment-item p {
-            margin: 0;
-            flex: 1; /* ให้ช่องแต่ละช่องใช้พื้นที่อย่างสมดุล */
-            text-align: center;
-        }
-        .payment-item p:first-child {
-            text-align: left; /* จัดข้อความช่องแรกให้ชิดซ้าย */
-        }
-        .payment-item p:last-child {
-            text-align: right;
-            margin-left: -150px; /* เพิ่มระยะห่างเล็กน้อยระหว่างตัวเลขกับ "บาท" */
-        }
-        
-        .skip-btn {
-            background-color: #ddd;
-            color: #000;
-            border: 1px solid #555;
-            margin-top: 20px; /* ระยะห่างจากกรอบ */
-            padding: 8px 16px; /* ลดขนาดปุ่ม */
-            cursor: pointer;
-            display: block; /* ให้ปุ่มแสดงเป็นบล็อก */
-            width: auto; /* ให้ขนาดของปุ่มไม่ขยายเต็มความกว้าง */
-            margin-left: 60%; /* จัดตำแหน่งให้ปุ่มอยู่กลาง */
-            margin-right: 40%; /* จัดตำแหน่งให้ปุ่มอยู่กลาง */
-        }
-        .skip-btn:hover {
-            background-color: #bbb; /* สีพื้นหลังเมื่อ hover */
-        }
-    </style>
+background-color: #e68a00;
+}
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px auto;
+    max-width: 350px;
+    border: 2px solid #000; /* ขอบกรอบสีดำ */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เงาขอบ */
+}
+.dropdown, .input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #000;
+    box-sizing: border-box;
+}
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #f90;
+    cursor: pointer;
+}
+.error {
+    color: #f00;
+    font-size: 0.9em;
+}
+.payment-item {
+    display: flex;
+    justify-content: space-between; /* กระจายพื้นที่ระหว่างแต่ละคอลัมน์ */
+    align-items: center; /* จัดตำแหน่งแนวตั้งให้อยู่ตรงกลาง */
+    margin-bottom: 10px; /* เพิ่มระยะห่างระหว่างบรรทัด */
+}
+
+.payment-item p {
+    margin: 0;
+    flex: 1; /* ให้ช่องแต่ละช่องใช้พื้นที่อย่างสมดุล */
+    text-align: center;
+}
+.payment-item p:first-child {
+    text-align: left; /* จัดข้อความช่องแรกให้ชิดซ้าย */
+}
+.payment-item p:last-child {
+    text-align: right;
+    margin-left: -150px; /* เพิ่มระยะห่างเล็กน้อยระหว่างตัวเลขกับ "บาท" */
+}
+
+.skip-btn {
+    background-color: #ddd;
+    color: #000;
+    border: 1px solid #555;
+    margin-top: 20px; /* ระยะห่างจากกรอบ */
+    padding: 8px 16px; /* ลดขนาดปุ่ม */
+    cursor: pointer;
+    display: block; /* ให้ปุ่มแสดงเป็นบล็อก */
+    width: auto; /* ให้ขนาดของปุ่มไม่ขยายเต็มความกว้าง */
+    margin-left: 60%; /* จัดตำแหน่งให้ปุ่มอยู่กลาง */
+    margin-right: 40%; /* จัดตำแหน่งให้ปุ่มอยู่กลาง */
+}
+.skip-btn:hover {
+    background-color: #bbb; /* สีพื้นหลังเมื่อ hover */
+}
+</style>
 </head>
 <body>
-    <!-- หน้าถามถึงบัตรสมาชิก -->
-    <div id="member-screen" class="container active">
-        <div class="card">
-            <h2>คุณได้เป็นสมาชิกของร้าน Winai's Shabu หรือไม่</h2>
-            <h4>กรุณากรอกข้อมูล</h4>
-            <input type="text" id="name" class="input" placeholder="ชื่อ">
-            <input type="text" id="name" class="input" placeholder="รหัสผ่าน">
-            <span id="name-error" class="error"></span>
-            <button class="btn" onclick="validateName()">ยืนยัน</button>
-            <button class="btn" onclick="goToSignup()">สมัครสมาชิก</button>
-        </div>
-        <button class="btn skip-btn" onclick="skipToPayment()">ข้าม</button>
-    </div>
+<!-- หน้าถามถึงบัตรสมาชิก -->
+<div id="member-screen" class="container active">
+<div class="card">
+    <h2>คุณได้เป็นสมาชิกของร้าน Winai's Shabu หรือไม่</h2>
+    <h4>กรุณากรอกข้อมูล</h4>
+    <input type="text" id="name" class="input" placeholder="ชื่อ">
+    <input type="text" id="name" class="input" placeholder="รหัสผ่าน">
+    <span id="name-error" class="error"></span>
+    <button class="btn" onclick="validateName()">ยืนยัน</button>
+    <button class="btn" onclick="goToSignup()">สมัครสมาชิก</button>
+</div>
+<button class="btn skip-btn" onclick="skipToPayment()">ข้าม</button>
+</div>
 
-    <!-- หน้าจ่ายเงิน -->
-    <div id="payment-screen" class="container">
-        <div class="card">
-            <h2>โต๊ะ: 10</h2>
-            <div class="payment-item">
-                <p>package :</p>
-                <p>Regular</p> <!-- ช่องว่างขวา -->
-                <p></p>
-            </div>
-            <div class="payment-item">
-                <p>จำนวนคน :</p>
-                <p>8</p>
-                <p>คน</p> <!-- ช่องว่างขวา -->
-            </div>
-            <div class="payment-item">
-                <p>ราคารวม :</p>
-                <p>1200</p>
-                <p>บาท</p> 
-            </div>
-            <div class="payment-item">
-                <p>ส่วนลด :</p>
-                <p>0</p>
-                <p>บาท</p> 
-            </div>
-            <div class="payment-item">
-                <p>ยอดสุทธิ :</p>
-                <p>1200</p>
-                <p>บาท</p> 
-            </div>
-            <select id="payment-method" class="dropdown">
-                <option value="" disabled selected>เลือกวิธีการชำระเงิน</option>
-                <option value="QR Promptpay">QR Promptpay</option>
-                <option value="บัตรเครดิต / เดบิต">บัตรเครดิต / เดบิต</option>
-            </select>
-            <button class="btn" onclick="goToSuccess()">ยืนยัน</button>
-        </div>
+<!-- หน้าจ่ายเงิน -->
+<div id="payment-screen" class="container">
+<div class="card">
+    <h2>โต๊ะ: 10</h2>
+    <div class="payment-item">
+        <p>package :</p>
+        <p>Regular</p> <!-- ช่องว่างขวา -->
+        <p></p>
     </div>
-    
-    <!-- หน้าชำระเงินสำเร็จ -->
-    <div id="success-screen" class="container">
-        <div class="card">
-            <span class="close" onclick="goHome()">X</span>
-            <h2>ชำระเงินสำเร็จ</h2>
-            <p>หมายเลขโต๊ะ: 10</p>
-            <p>จำนวนคน: 8</p>
-            <p>ราคาสุทธิ: 1200</p>
-        </div>
+    <div class="payment-item">
+        <p>จำนวนคน :</p>
+        <p>8</p>
+        <p>คน</p> <!-- ช่องว่างขวา -->
     </div>
+    <div class="payment-item">
+        <p>ราคารวม :</p>
+        <p>1200</p>
+        <p>บาท</p> 
+    </div>
+    <div class="payment-item">
+        <p>ส่วนลด :</p>
+        <p>0</p>
+        <p>บาท</p> 
+    </div>
+    <div class="payment-item">
+        <p>ยอดสุทธิ :</p>
+        <p>1200</p>
+        <p>บาท</p> 
+    </div>
+    <select id="payment-method" class="dropdown">
+        <option value="" disabled selected>เลือกวิธีการชำระเงิน</option>
+        <option value="QR Promptpay">QR Promptpay</option>
+        <option value="บัตรเครดิต / เดบิต">บัตรเครดิต / เดบิต</option>
+    </select>
+    <button class="btn" onclick="goToSuccess()">ยืนยัน</button>
+</div>
+</div>
 
-    <script>
-        function validateName() {
-            const name = document.getElementById("name").value.trim();
-            if (!name) {
-                document.getElementById("name-error").textContent = "กรุณากรอกชื่อ-นามสกุล";
-            } else {
-                document.getElementById("name-error").textContent = "";
-                goToPayment();
-            }
-        }
-    
-        function validateSignup() {
-            const password = document.getElementById("password").value;
-            const confirmPassword = document.getElementById("confirmPassword").value;
-    
-            if (password !== confirmPassword) {
-                document.getElementById("password-error").textContent = "รหัสผ่านไม่ตรงกัน";
-            } else {
-                document.getElementById("password-error").textContent = "";
-                goToPayment();
-            }
-        }
-    
-        function goToPayment() {
-            document.querySelector(".active").classList.remove("active");
-            document.getElementById("payment-screen").classList.add("active");
-        }
-    
-        function goToSuccess() {
-            const paymentMethod = document.getElementById("payment-method").value;
-            if (paymentMethod) {
-                document.querySelector(".active").classList.remove("active");
-                document.getElementById("success-screen").classList.add("active");
-            } else {
-                alert("กรุณาเลือกวิธีการชำระเงิน");
-            }
-        }
-    
-        function goHome() {
-            document.querySelector(".active").classList.remove("active");
-            document.getElementById("member-screen").classList.add("active");
-        }
-    
-        function goToSignup() {
-            document.querySelector(".active").classList.remove("active");
-            document.getElementById("signup-screen").classList.add("active");
-        }
-    
-        // ฟังก์ชันสำหรับปุ่มข้าม
-        function skipToPayment() {
-            document.querySelector(".active").classList.remove("active");
-            document.getElementById("payment-screen").classList.add("active");
-        }
-    </script>    
+<!-- หน้าชำระเงินสำเร็จ -->
+<div id="success-screen" class="container">
+<div class="card">
+    <span class="close" onclick="goHome()">X</span>
+    <h2>ชำระเงินสำเร็จ</h2>
+    <p>หมายเลขโต๊ะ: 10</p>
+    <p>จำนวนคน: 8</p>
+    <p>ราคาสุทธิ: 1200</p>
+</div>
+</div>
+
+<script>
+function validateName() {
+    const name = document.getElementById("name").value.trim();
+    if (!name) {
+        document.getElementById("name-error").textContent = "กรุณากรอกชื่อ-นามสกุล";
+    } else {
+        document.getElementById("name-error").textContent = "";
+        goToPayment();
+    }
+}
+
+function validateSignup() {
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    if (password !== confirmPassword) {
+        document.getElementById("password-error").textContent = "รหัสผ่านไม่ตรงกัน";
+    } else {
+        document.getElementById("password-error").textContent = "";
+        goToPayment();
+    }
+}
+
+function goToPayment() {
+    document.querySelector(".active").classList.remove("active");
+    document.getElementById("payment-screen").classList.add("active");
+}
+
+function goToSuccess() {
+    const paymentMethod = document.getElementById("payment-method").value;
+    if (paymentMethod) {
+        document.querySelector(".active").classList.remove("active");
+        document.getElementById("success-screen").classList.add("active");
+    } else {
+        alert("กรุณาเลือกวิธีการชำระเงิน");
+    }
+}
+
+function goHome() {
+    document.querySelector(".active").classList.remove("active");
+    document.getElementById("member-screen").classList.add("active");
+}
+
+function goToSignup() {
+    document.querySelector(".active").classList.remove("active");
+    document.getElementById("signup-screen").classList.add("active");
+}
+
+// ฟังก์ชันสำหรับปุ่มข้าม
+function skipToPayment() {
+    document.querySelector(".active").classList.remove("active");
+    document.getElementById("payment-screen").classList.add("active");
+}
+</script>    
 </body>
 </html>
