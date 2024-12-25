@@ -4,32 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ฟอร์มการจอง</title>
-    <!-- Link to External CSS -->
     <link rel="stylesheet" href="ตกแต่งฟอร์มการจอง.css">
 </head>
 <body>
 <div class="form-container">
     <h1>ฟอร์มการจอง</h1>
-    <form>
+    <form action="ตรวจสอบข้อมูลการจอง.html" method="GET" onsubmit="return validateTime()">
         <label for="name">ชื่อ</label>
-        <input type="text" id="name" name="name" placeholder="ชื่อ">
+        <input type="text" id="name" name="name" placeholder="ชื่อ" value="" required>
         
         <label for="phone">เบอร์โทรศัพท์</label>
-        <input type="tel" id="phone" name="phone" placeholder="เบอร์โทรศัพท์">
+        <input type="tel" id="phone" name="phone" placeholder="เบอร์โทรศัพท์" value="" required>
         
         <label for="people">จำนวนคน</label>
-        <input type="number" id="people" name="people" placeholder="จำนวนคน">
+        <input type="number" id="people" name="people" placeholder="จำนวนคน" min="1" max="10" value="" required>
         
         <label for="time">เวลาในการจอง</label>
-        <input type="time" id="time" name="time" placeholder="16:00 - 19:00">
+        <input type="time" id="time" name="time" min="16:00" max="19:00" required>
         
         <div>
-            <input type="checkbox" id="terms" name="terms">
-            <label for="terms" class="terms-label">อ่าน <a href="#">กฎการจอง</a> แล้ว</label>
+            <input type="checkbox" id="terms" name="terms" required>
+            <label for="terms">อ่าน <a href="กฏการจอง.html">กฎการจอง</a> แล้ว</label>
         </div>
         
         <button type="submit">จอง</button>
     </form>
 </div>
+
+<script>
+    // ดึงค่าจาก URL Parameters แล้วเติมลงในฟอร์ม
+    const urlParams = new URLSearchParams(window.location.search);
+    document.getElementById('name').value = urlParams.get('name') || '';
+    document.getElementById('phone').value = urlParams.get('phone') || '';
+    document.getElementById('people').value = urlParams.get('people') || '';
+    document.getElementById('time').value = urlParams.get('time') || '';
+
+    // ตรวจสอบเวลาที่กรอกให้เป็นไปตามช่วง 16:00 ถึง 19:00
+    function validateTime() {
+        const timeInput = document.getElementById('time').value;
+        if (timeInput < "16:00" || timeInput > "19:00") {
+            alert("กรุณาเลือกเวลาในช่วง 16:00 ถึง 19:00");
+            return false; // ยกเลิกการส่งฟอร์ม
+        }
+        return true; // อนุญาตให้ส่งฟอร์ม
+    }
+</script>
 </body>
 </html>

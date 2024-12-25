@@ -185,12 +185,11 @@ footer a:hover {
 
 .rectangle-box {
     width: 400px; /* ความกว้างของสี่เหลี่ยม */
-    height: 500px; /* ความสูงของสี่เหลี่ยม */
-    background-color: rgb(203, 203, 203); /* สีพื้นหลัง */
+    height: 400px; /* ความสูงของสี่เหลี่ยม */
+    background-color: rgb(228, 228, 228); /* สีพื้นหลัง */
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid #333; /* ขอบสี่เหลี่ยม */
     color: white;
     font-size: 1.2rem;
     text-align: center;
@@ -205,8 +204,7 @@ footer a:hover {
 /* การตั้งค่า table ให้อยู่ภายในสี่เหลี่ยม */
 .table {
     position: absolute;
-    background-color: #738ffe;
-    border: 1px solid black;
+    background-color: #ff6f00;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -224,20 +222,20 @@ footer a:hover {
     height: 10%;
 }
 .table2 {
-    top: 40%;
+    top: 40.2%;
     left: 23%;
     width: 18%;
     height: 10%;
 }
 .table3 {
-    top: 50%;
+    top: 50.5%;
     left: 23%;
     width: 18%;
     height: 10%;
 }
 
 .table4 {
-    top: 60%;
+    top: 60.9%;
     left: 23%;
     width: 18%;
     height: 10%;
@@ -250,25 +248,25 @@ footer a:hover {
     height: 10%;
 }
 .table6 {
-    top: 30%;
+    top: 30.3%;
     left: 54%;
     width: 9%;
     height: 10%;
 }
 .table7 {
-    top: 40%;
+    top: 40.5%;
     left: 54%;
     width: 9%;
     height: 10%;
 }
 .table8 {
-    top: 50%;
+    top: 50.8%;
     left: 54%;
     width: 9%;
     height: 10%;
 }
 .table9 {
-    top: 60%;
+    top: 61%;
     left: 54%;
     width: 9%;
     height: 10%;
@@ -280,25 +278,25 @@ footer a:hover {
     height: 10%;
 }
 .table11 {
-    top: 30%;
+    top: 30.3%;
     left: 65%;
     width: 9%;
     height: 10%;
 }
 .table12 {
-    top: 40%;
+    top: 40.5%;
     left: 65%;
     width: 9%;
     height: 10%;
 }
 .table13 {
-    top: 50%;
+    top: 50.8%;
     left: 65%;
     width: 9%;
     height: 10%;
 }
 .table14 {
-    top: 60%;
+    top: 61%;
     left: 65%;
     width: 9%;
     height: 10%;
@@ -310,31 +308,31 @@ footer a:hover {
     height: 10%;
 }
 .table16 {
-    top: 25%;
+    top: 25.3%;
     left: 90%;
     width: 9%;
     height: 10%;
 }
 .table17 {
-    top: 35%;
+    top: 35.6%;
     left: 90%;
     width: 9%;
     height: 10%;
 }
 .table18 {
-    top: 45%;
+    top: 45.9%;
     left: 90%;
     width: 9%;
     height: 10%;
 }
 .table19 {
-    top: 55%;
+    top: 56.3%;
     left: 90%;
     width: 9%;
     height: 10%;
 }
 .table20 {
-    top: 65%;
+    top: 66.7%;
     left: 90%;
     width: 9%;
     height: 10%;
@@ -343,8 +341,7 @@ footer a:hover {
     position: absolute; /* ใช้ตำแหน่งแบบ absolute */
     width: 250px;
     height: 50px;
-    background-color: #72d572;
-    border: 2px solid black;
+    background-color: #494949;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -361,8 +358,7 @@ footer a:hover {
     position: absolute; /* ใช้ตำแหน่งแบบ absolute */
     width: 50px;
     height: 310px;
-    background-color: #72d572;
-    border: 2px solid black;
+    background-color: #494949;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -379,8 +375,7 @@ footer a:hover {
     position: absolute; /* ใช้ตำแหน่งแบบ absolute */
     width: 100px;
     height: 30px;
-    background-color: #72d572;
-    border: 2px solid black;
+    background-color: #494949;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -396,8 +391,7 @@ footer a:hover {
     position: absolute; /* ใช้ตำแหน่งแบบ absolute */
     width: 150px;
     height: 20px;
-    background-color: #72d572;
-    border: 2px solid black;
+    background-color: #494949;
     display: flex;
     justify-content: center;
     align-items: center;
