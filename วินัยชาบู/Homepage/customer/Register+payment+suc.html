@@ -22,13 +22,13 @@
         }
         .btn {
             padding: 10px 20px;
-            background-color: #f90;
+            background-color: #ff600f;
             color: #fff;
             border: none;
             cursor: pointer;
         }
         .btn:hover {
-            background-color: #e68a00;
+            background-color: #ff600f;
         }
         .card {
             background-color: #fff;
@@ -149,7 +149,6 @@
             <button class="btn" onclick="goToSuccess()">ยืนยัน</button>
         </div>
     </div>
-    
 
     <script>
         function validateName() {
@@ -181,9 +180,9 @@
     
         function goToSuccess() {
             const paymentMethod = document.getElementById("payment-method").value;
+            <a class="close-button" href="หน้าแรก.html">&times;</a>
             if (paymentMethod) {
-                document.querySelector(".active").classList.remove("active");
-                document.getElementById("success-screen").classList.add("active");
+                window.location.href = "Receipt.html";
             } else {
                 alert("กรุณาเลือกวิธีการชำระเงิน");
             }
@@ -204,6 +203,10 @@
             document.querySelector(".active").classList.remove("active");
             document.getElementById("payment-screen").classList.add("active");
         }
-    </script>    
+        function goToSignup(){
+            window.location.href = "Register.html";
+        }
+    </script>
+
 </body>
 </html>

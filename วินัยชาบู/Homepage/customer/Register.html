@@ -90,13 +90,23 @@
         button:hover {
             background-color: #e55a00;
         }
+
+        .form-group.terms-group{
+            display: flex;
+            align-items: self-start;
+            gap: 10px;
+        }
+        .form-group.terms-group input[type="checkbox"] {
+            margin-top: 4px; /* ปรับระยะห่างแนวตั้งของ checkbox ให้ตรงกับข้อความ */
+        }
+
     </style>
 </head>
 
 <body>
     <div class="container">
         <h2>หน้าสมัครสมาชิก</h2>
-        <form action="#" method="post">
+        <form id="registerForm" method="post">
             <!-- คำนำหน้าชื่อ, ชื่อ, นามสกุล -->
             <div class="form-group flex-row">
                 <div class="form-group-inner">
@@ -181,6 +191,28 @@
                     option.textContent = year;
                     birthYearSelect.appendChild(option);
                 }
+                
+                
+                
+                document.querySelector("form").addEventListener("submit", function (event) {
+                    event.preventDefault(); // ป้องกันการรีเฟรชหน้า
+                
+                    // รับค่าจากช่องรหัสผ่านและยืนยันรหัสผ่าน
+                    const password = document.getElementById("password").value;
+                    const confirmPassword = document.getElementById("confirmPassword").value;
+                    
+                    if (password.length < 8){
+                        alert("รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร")
+                    }
+                    // ตรวจสอบว่ารหัสผ่านตรงกันหรือไม่
+                    else if (password !== confirmPassword) {
+                        alert("รหัสผ่านและรหัสยืนยันไม่ตรงกัน! กรุณาตรวจสอบอีกครั้ง");
+                    } else {
+                        // หากตรงกันให้เปลี่ยนหน้า
+                        window.location.href = "Register+payment+suc.html";
+                    }
+                });
+
             </script>
 
             <!-- ตั้งรหัสผ่าน -->
@@ -196,12 +228,13 @@
             </div>
 
             <!-- เงื่อนไข -->
-            <div class="form-group">
+            <div class="form-group terms-group">
                 <input type="checkbox" id="terms1" name="terms1" required>
                 <label for="terms1" class="terms">ข้าพเจ้าได้อ่าน ทำความเข้าใจ และยอมรับ ข้อกำหนดและเงื่อนไขการใช้งานเว็บไซต์ นี้ และรับทราบว่าบริษัทฯ เก็บรวบรวม ใช้ เปิดเผย และเก็บรักษาข้อมูลส่วนบุคคลของข้าพเจ้าตามที่ กำหนดไว้ใน ประกาศความเป็นส่วนตัวนี้</label>
-                <br>
+            </div>
+            <div class="form-group terms-group">
                 <input type="checkbox" id="terms2" name="terms2">
-                <label for="terms2" class="terms">ข้าพเจ้ายินยอมให้บริษัทฯ เก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าสำหรับ เสนอข่าวสารต่างๆ โปรโมชั่น สิทธิประโยชน์ สิทธิพิเศษ (แต่ไม่รวมถึงสิทธิพิเศษที่ถือเป็นคุณ แก่ลูกค้าเป็นหลัก เช่น คูปองส่วนลด หรือ คูปองแทนเงินสด เป็นต้น) รวมถึงข้อมูลเกี่ยวกับ ผลิตภัณฑ์และ/หรือบริการใหม่ๆ ของบริษัทฯ และบริษัทในเครือที่ข้าพเจ้าอาจสนใจ และ ยินยอมให้บริษัทฯ เปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าแก่บริษัทในเครือและผู้ให้บริการ ภายนอกสำหรับประมวลผลและวิเคราะห์ข้อมูล รวมถึงวิจัย ปรับปรุง และพัฒนาผลิตภัณฑ์ และ/หรือบริการของบริษัทฯ และบริษัทในเครือให้เหมาะสมกับความต้องการของข้าพเจ้า ทั้งนี้ การไม่ยินยอมในข้อนี้จะไม่กระทบสิทธิความยินยอมที่ท่านได้เคยให้ไว้ก่อนหน้านี้ เว้นแต่ท่านจะได้ใช้สิทธิขอถอนความยินยอมมาแล้ว</label>
+                <label for="terms2" class="terms">ข้าพเจ้ายินยอมให้บริษัทฯ เก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าสำหรับเสนอข่าวสารต่างๆ โปรโมชั่น สิทธิประโยชน์ สิทธิพิเศษ รวมถึงข้อมูลเกี่ยวกับผลิตภัณฑ์และ/หรือบริการใหม่ๆ ของบริษัทฯ</label>
             </div>
 
             <button type="submit">ยืนยัน</button>
