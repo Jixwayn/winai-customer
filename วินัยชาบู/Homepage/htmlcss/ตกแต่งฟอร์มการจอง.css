@@ -43,16 +43,19 @@ body {
     box-sizing: border-box; /* Ensure padding does not affect width */
 }
 
+.form-container div {
+    display: flex; /* ใช้ Flexbox เพื่อจัดเรียง Checkbox และข้อความ */
+    align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+}
+
 .form-container input[type="checkbox"] {
-    margin-right: 10px;
-    vertical-align: middle;
+    margin-right: 8px; /* เพิ่มระยะห่างระหว่าง Checkbox และข้อความ */
 }
 
 .form-container .terms-label {
-    display: inline-block;
     font-size: 14px;
-    vertical-align: middle;
 }
+
 
 .form-container button {
     width: 100%;
