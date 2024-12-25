@@ -23,11 +23,13 @@ header {
     text-align: left;
     padding: 2rem 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    flex-shrink: 0; /* คงขนาด header */
+    flex-shrink: 0;
+    /* คงขนาด header */
 }
 
 header h1 {
-    margin: 0; /* รีเซ็ต margin เพื่อป้องกันการเบี่ยงเบน */
+    margin: 0;
+    /* รีเซ็ต margin เพื่อป้องกันการเบี่ยงเบน */
     font-size: 2rem;
     letter-spacing: 1px;
 }
@@ -64,10 +66,13 @@ nav a:hover {
 }
 
 main {
-    flex-grow: 1; /* ขยายส่วนนี้ให้เต็มพื้นที่ */
+    flex-grow: 1;
+    /* ขยายส่วนนี้ให้เต็มพื้นที่ */
     display: flex;
-    flex-direction: column; /* เรียงเนื้อหาในแนวตั้ง */
-    gap: 2rem; /* ระยะห่างระหว่างแต่ละส่วน */
+    flex-direction: column;
+    /* เรียงเนื้อหาในแนวตั้ง */
+    gap: 2rem;
+    /* ระยะห่างระหว่างแต่ละส่วน */
     padding: 2rem;
     box-sizing: border-box;
 }
@@ -77,30 +82,42 @@ main {
 /* ส่วนการตั้งค่าในหน้าจอปกติ */
 .menu-section {
     display: flex;
-    justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
-    align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
-    height: 100%; /* ครอบคลุมหน้าจอ */
+    justify-content: center;
+    /* จัดให้อยู่ตรงกลางแนวนอน */
+    align-items: center;
+    /* จัดให้อยู่ตรงกลางแนวตั้ง */
+    height: 100%;
+    /* ครอบคลุมหน้าจอ */
 }
+
 .menu-carousel {
     display: flex;
-    overflow-x: auto; /* เปิดการเลื่อนแนวนอน */
-    gap: 1.5rem; /* ระยะห่างระหว่างกล่องเมนู */
-    padding: 0 1rem; /* เพิ่ม Padding เพื่อให้เลื่อนได้จนสุด */
-    scroll-snap-type: x mandatory; /* ใช้ Snap */
+    overflow-x: auto;
+    /* เปิดการเลื่อนแนวนอน */
+    gap: 1.5rem;
+    /* ระยะห่างระหว่างกล่องเมนู */
+    padding: 0 1rem;
+    /* เพิ่ม Padding เพื่อให้เลื่อนได้จนสุด */
+    scroll-snap-type: x mandatory;
+    /* ใช้ Snap */
     align-items: center;
-    justify-content: flex-start; /* เริ่มต้นจากซ้าย (สำหรับ Scroll) */
+    justify-content: flex-start;
+    /* เริ่มต้นจากซ้าย (สำหรับ Scroll) */
 }
 
 .menu-carousel::before,
 .menu-carousel::after {
-    content: ''; /* เพิ่มเนื้อหาว่าง */
-    flex: 0 0 5%; /* ขนาด Flex เท่ากับ 50% ของพื้นที่ */
+    content: '';
+    /* เพิ่มเนื้อหาว่าง */
+    flex: 0 0 5%;
+    /* ขนาด Flex เท่ากับ 50% ของพื้นที่ */
 }
 
 .menu-item {
     flex: 0 0 auto;
     width: 150px;
-    height: 150px; /* เพิ่มความสูงเพื่อรองรับข้อความ */
+    height: 150px;
+    /* เพิ่มความสูงเพื่อรองรับข้อความ */
     background-color: #ffe0b2;
     color: #ff6f00;
     text-align: center;
@@ -113,7 +130,8 @@ main {
 
 .menu-item img {
     width: 100%;
-    height: 100px; /* กำหนดขนาดรูปภาพ */
+    height: 100px;
+    /* กำหนดขนาดรูปภาพ */
     object-fit: cover;
     border-radius: 8px;
 }
@@ -121,8 +139,10 @@ main {
 
 .menu-item:hover {
     background-color: #ffab40;
-    transform: scale(1.05); /* ขยายเมื่อ hover */
+    transform: scale(1.05);
+    /* ขยายเมื่อ hover */
 }
+
 /* .menu-item p {
     position: absolute;
     bottom: 10px; ให้ข้อความอยู่ที่ด้านล่างของกล่อง 
@@ -135,14 +155,17 @@ main {
 
 /* เมื่อ hover ที่ .menu-item */
 .menu-item:hover {
-    transform: scale(1.05); /* ขยายขนาดเมื่อ hover */
-    background-color: #ffab40; /* เปลี่ยนสีพื้นหลัง */
+    transform: scale(1.05);
+    /* ขยายขนาดเมื่อ hover */
+    background-color: #ffab40;
+    /* เปลี่ยนสีพื้นหลัง */
 }
 
 
 /* เมื่อ hover ที่ .menu-item */
 .menu-item:hover .menu-item-description {
-    color: #ff8c00; /* เปลี่ยนสีเมื่อ hover */
+    color: #ff8c00;
+    /* เปลี่ยนสีเมื่อ hover */
 }
 
 
@@ -167,34 +190,46 @@ footer a:hover {
     main {
         gap: 1.5rem;
     }
-    .menu-button, .review-button {
+
+    .menu-button,
+    .review-button {
         font-size: 1.1rem;
         padding: 1rem 1.5rem;
     }
+
     .menu-carousel {
-        gap: 0.2rem; /* ลดระยะห่างระหว่างกล่องเมนูในหน้าจอเล็ก */
-        padding: 0; /* ลบ padding ของคอนเทนเนอร์ */
+        gap: 0.2rem;
+        /* ลดระยะห่างระหว่างกล่องเมนูในหน้าจอเล็ก */
+        padding: 0;
+        /* ลบ padding ของคอนเทนเนอร์ */
     }
 }
+
 /* การตั้งค่าสำหรับสี่เหลี่ยมที่เพิ่มใต้แผนผังร้าน */
 #rectangle-under-map {
     display: flex;
-    justify-content: center; /* จัดสี่เหลี่ยมให้อยู่กลางจอ */
+    justify-content: center;
+    /* จัดสี่เหลี่ยมให้อยู่กลางจอ */
     margin-top: 2rem;
 }
 
 .rectangle-box {
-    width: 400px; /* ความกว้างของสี่เหลี่ยม */
-    height: 400px; /* ความสูงของสี่เหลี่ยม */
-    background-color: rgb(228, 228, 228); /* สีพื้นหลัง */
+    width: 400px;
+    /* ความกว้างของสี่เหลี่ยม */
+    height: 400px;
+    /* ความสูงของสี่เหลี่ยม */
+    background-color: rgb(228, 228, 228);
+    /* สีพื้นหลัง */
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     font-size: 1.2rem;
     text-align: center;
-    border-radius: 5px; /* ขอบโค้ง */
-    position: relative; /* กำหนดให้ .rectangle-box เป็นตำแหน่งพื้นฐานสำหรับ .table */
+    border-radius: 5px;
+    /* ขอบโค้ง */
+    position: relative;
+    /* กำหนดให้ .rectangle-box เป็นตำแหน่งพื้นฐานสำหรับ .table */
 }
 
 .rectangle-box p {
@@ -216,17 +251,21 @@ footer a:hover {
 
 /* การตั้งตำแหน่งของโต๊ะภายในสี่เหลี่ยม */
 .table1 {
-    top: 30%; /* ค่าตั้งจากบน 30% ของความสูงของสี่เหลี่ยม */
-    left: 32%; /* ค่าตั้งจากซ้าย 32% ของความกว้างของสี่เหลี่ยม */
+    top: 30%;
+    /* ค่าตั้งจากบน 30% ของความสูงของสี่เหลี่ยม */
+    left: 32%;
+    /* ค่าตั้งจากซ้าย 32% ของความกว้างของสี่เหลี่ยม */
     width: 9%;
     height: 10%;
 }
+
 .table2 {
     top: 40.2%;
     left: 23%;
     width: 18%;
     height: 10%;
 }
+
 .table3 {
     top: 50.5%;
     left: 23%;
@@ -247,98 +286,120 @@ footer a:hover {
     width: 9%;
     height: 10%;
 }
+
 .table6 {
     top: 30.3%;
     left: 54%;
     width: 9%;
     height: 10%;
 }
+
 .table7 {
     top: 40.5%;
     left: 54%;
     width: 9%;
     height: 10%;
 }
+
 .table8 {
     top: 50.8%;
     left: 54%;
     width: 9%;
     height: 10%;
 }
+
 .table9 {
     top: 61%;
     left: 54%;
     width: 9%;
     height: 10%;
 }
+
 .table10 {
     top: 20%;
     left: 65%;
     width: 9%;
     height: 10%;
 }
+
 .table11 {
     top: 30.3%;
     left: 65%;
     width: 9%;
     height: 10%;
 }
+
 .table12 {
     top: 40.5%;
     left: 65%;
     width: 9%;
     height: 10%;
 }
+
 .table13 {
     top: 50.8%;
     left: 65%;
     width: 9%;
     height: 10%;
 }
+
 .table14 {
     top: 61%;
     left: 65%;
     width: 9%;
     height: 10%;
 }
+
 .table15 {
     top: 15%;
     left: 90%;
     width: 9%;
     height: 10%;
 }
+
 .table16 {
     top: 25.3%;
     left: 90%;
     width: 9%;
     height: 10%;
 }
+
 .table17 {
     top: 35.6%;
     left: 90%;
     width: 9%;
     height: 10%;
 }
+
 .table18 {
     top: 45.9%;
     left: 90%;
     width: 9%;
     height: 10%;
 }
+
 .table19 {
     top: 56.3%;
     left: 90%;
     width: 9%;
     height: 10%;
 }
+
 .table20 {
     top: 66.7%;
     left: 90%;
     width: 9%;
     height: 10%;
 }
+.table.booked {
+    background-color: #ffcccc;
+    color: gray;
+    cursor: not-allowed;
+}
+
 .rectangle {
-    position: absolute; /* ใช้ตำแหน่งแบบ absolute */
+    position: absolute;
+    /* ใช้ตำแหน่งแบบ absolute */
     width: 250px;
     height: 50px;
     background-color: #494949;
@@ -349,13 +410,17 @@ footer a:hover {
     font-family: Arial, sans-serif;
 
     /* ปรับตำแหน่ง */
-    top: 5%; /* ด้านบน 50% */
-    left: 31.5%; /* ด้านซ้าย 50% */
-    transform: translate(-50%, -50%); /* เลื่อนจุดกึ่งกลาง */
+    top: 5%;
+    /* ด้านบน 50% */
+    left: 31.5%;
+    /* ด้านซ้าย 50% */
+    transform: translate(-50%, -50%);
+    /* เลื่อนจุดกึ่งกลาง */
 }
 
 .rectangle1 {
-    position: absolute; /* ใช้ตำแหน่งแบบ absolute */
+    position: absolute;
+    /* ใช้ตำแหน่งแบบ absolute */
     width: 50px;
     height: 310px;
     background-color: #494949;
@@ -366,13 +431,17 @@ footer a:hover {
     font-family: Arial, sans-serif;
 
     /* ปรับตำแหน่ง */
-    top: 42%; /* ด้านบน 50% */
-    left: 6.5%; /* ด้านซ้าย 50% */
-    transform: translate(-50%, -50%); /* เลื่อนจุดกึ่งกลาง */
+    top: 42%;
+    /* ด้านบน 50% */
+    left: 6.5%;
+    /* ด้านซ้าย 50% */
+    transform: translate(-50%, -50%);
+    /* เลื่อนจุดกึ่งกลาง */
 }
 
 .rectangle2 {
-    position: absolute; /* ใช้ตำแหน่งแบบ absolute */
+    position: absolute;
+    /* ใช้ตำแหน่งแบบ absolute */
     width: 100px;
     height: 30px;
     background-color: #494949;
@@ -383,12 +452,17 @@ footer a:hover {
     font-family: Arial, sans-serif;
 
     /* ปรับตำแหน่ง */
-    top: 10.5%; /* ด้านบน 50% */
-    left: 87.5%; /* ด้านซ้าย 50% */
-    transform: translate(-50%, -50%); /* เลื่อนจุดกึ่งกลาง */
+    top: 10.5%;
+    /* ด้านบน 50% */
+    left: 87.5%;
+    /* ด้านซ้าย 50% */
+    transform: translate(-50%, -50%);
+    /* เลื่อนจุดกึ่งกลาง */
 }
+
 .rectangle3 {
-    position: absolute; /* ใช้ตำแหน่งแบบ absolute */
+    position: absolute;
+    /* ใช้ตำแหน่งแบบ absolute */
     width: 150px;
     height: 20px;
     background-color: #494949;
@@ -399,35 +473,49 @@ footer a:hover {
     font-family: Arial, sans-serif;
 
     /* ปรับตำแหน่ง */
-    top: 100%; /* ด้านบน 50% */
-    left: 50%; /* ด้านซ้าย 50% */
-    transform: translate(-50%, -50%); /* เลื่อนจุดกึ่งกลาง */
+    top: 100%;
+    /* ด้านบน 50% */
+    left: 50%;
+    /* ด้านซ้าย 50% */
+    transform: translate(-50%, -50%);
+    /* เลื่อนจุดกึ่งกลาง */
 }
+
 /* CSS for Review Button */
 #review {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10vh; /* Full viewport height */
-    margin-top: 20px; /* เพิ่มระยะห่างด้านบน */
+    height: 10vh;
+    /* Full viewport height */
+    margin-top: 20px;
+    /* เพิ่มระยะห่างด้านบน */
 }
 
 
 .review-button {
     display: inline-block;
     padding: 15px 30px;
-    background-color: #ff6600; /* Orange color */
-    color: #ffffff; /* White text */
-    text-decoration: none; /* Remove underline */
+    background-color: #ff6600;
+    /* Orange color */
+    color: #ffffff;
+    /* White text */
+    text-decoration: none;
+    /* Remove underline */
     font-size: 18px;
     font-weight: bold;
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Slight shadow */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Hover effect */
-    
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+    /* Slight shadow */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    /* Hover effect */
+
 }
 
 .review-button:hover {
-    background-color: #e65500; /* Darker orange on hover */
-    transform: scale(1.05); /* Slightly enlarge on hover */
+    background-color: #e65500;
+    /* Darker orange on hover */
+    transform: scale(1.05);
+    /* Slightly enlarge on hover */
 }
