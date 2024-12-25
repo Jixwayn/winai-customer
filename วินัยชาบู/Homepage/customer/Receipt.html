@@ -18,6 +18,7 @@
             padding: 20px;
             border: 1px solid #ddd;
             border-radius: 5px;
+            position: relative; /* เพิ่มตำแหน่งสำหรับปุ่ม */
         }
         .header {
             text-align: center;
@@ -69,10 +70,23 @@
             color: #555;
             margin-top: 20px;
         }
+        /* ปุ่มกากบาท */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+            background-color: transparent;
+            border: none;
+            color: #555;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <div class="receipt-container">
+        <!-- ปุ่มกากบาท -->
+        <button class="close-btn" onclick="closeReceipt()">×</button>
         <div class="header">
             <h1>Winai's Shabu</h1>
             <p>สาขา พิษณุโลก (มหาวิทยาลัยนเรศวร)</p>
@@ -85,7 +99,7 @@
         </div>
         <div class="additional-details">
             <p>สมาชิก: 00-000-0</p>
-            <p>โต๊ะ: 10</p>
+            <p>โต๊ะ: 01</p>
         </div>
         <div class="line"></div>
         <div class="item">
@@ -135,5 +149,12 @@
             <p>Thank You</p>
         </div>
     </div>
+
+    <script>
+        function closeReceipt() {
+            window.location.href = "../htmlcss/หน้าแรก.html"; // ใส่ชื่อไฟล์หน้าแรกที่ต้องการ
+        }
+    </script>
+
 </body>
 </html>
