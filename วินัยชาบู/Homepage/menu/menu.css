@@ -76,6 +76,12 @@ header h1 {
     margin-right: 10px;
     cursor: pointer;
     color: white;
+    text-decoration: none; /* เอาขีดเส้นใต้ลิงก์ออก */
+
+}
+
+.back-button:hover {
+    color: #ffe600; /* เปลี่ยนสีเมื่อเมาส์วาง */
 }
 
 .search-bar {

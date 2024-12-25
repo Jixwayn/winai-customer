@@ -82,42 +82,30 @@ main {
 /* ส่วนการตั้งค่าในหน้าจอปกติ */
 .menu-section {
     display: flex;
-    justify-content: center;
-    /* จัดให้อยู่ตรงกลางแนวนอน */
-    align-items: center;
-    /* จัดให้อยู่ตรงกลางแนวตั้ง */
-    height: 100%;
-    /* ครอบคลุมหน้าจอ */
+    justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+    align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+    height: 100%; /* ครอบคลุมหน้าจอ */
 }
-
 .menu-carousel {
     display: flex;
-    overflow-x: auto;
-    /* เปิดการเลื่อนแนวนอน */
-    gap: 1.5rem;
-    /* ระยะห่างระหว่างกล่องเมนู */
-    padding: 0 1rem;
-    /* เพิ่ม Padding เพื่อให้เลื่อนได้จนสุด */
-    scroll-snap-type: x mandatory;
-    /* ใช้ Snap */
+    overflow-x: auto; /* เปิดการเลื่อนแนวนอน */
+    gap: 1.5rem; /* ระยะห่างระหว่างกล่องเมนู */
+    padding: 0 1rem; /* เพิ่ม Padding เพื่อให้เลื่อนได้จนสุด */
+    scroll-snap-type: x mandatory; /* ใช้ Snap */
     align-items: center;
-    justify-content: flex-start;
-    /* เริ่มต้นจากซ้าย (สำหรับ Scroll) */
+    justify-content: flex-start; /* เริ่มต้นจากซ้าย (สำหรับ Scroll) */
 }
 
 .menu-carousel::before,
 .menu-carousel::after {
-    content: '';
-    /* เพิ่มเนื้อหาว่าง */
-    flex: 0 0 5%;
-    /* ขนาด Flex เท่ากับ 50% ของพื้นที่ */
+    content: ''; /* เพิ่มเนื้อหาว่าง */
+    flex: 0 0 5%; /* ขนาด Flex เท่ากับ 50% ของพื้นที่ */
 }
 
 .menu-item {
     flex: 0 0 auto;
     width: 150px;
-    height: 150px;
-    /* เพิ่มความสูงเพื่อรองรับข้อความ */
+    height: 150px; /* เพิ่มความสูงเพื่อรองรับข้อความ */
     background-color: #ffe0b2;
     color: #ff6f00;
     text-align: center;
@@ -130,44 +118,32 @@ main {
 
 .menu-item img {
     width: 100%;
-    height: 100px;
-    /* กำหนดขนาดรูปภาพ */
+    height: 100px; /* กำหนดขนาดรูปภาพ */
     object-fit: cover;
     border-radius: 8px;
 }
 
-
 .menu-item:hover {
     background-color: #ffab40;
-    transform: scale(1.05);
-    /* ขยายเมื่อ hover */
+    transform: scale(1.05); /* ขยายเมื่อ hover */
 }
-
-/* .menu-item p {
-    position: absolute;
-    bottom: 10px; ให้ข้อความอยู่ที่ด้านล่างของกล่อง 
-    left: 0;
-    right: 0;
-    margin: 0;
-    color: #1c29dd;
-    font-size: 1rem;
-}*/
 
 /* เมื่อ hover ที่ .menu-item */
 .menu-item:hover {
-    transform: scale(1.05);
-    /* ขยายขนาดเมื่อ hover */
-    background-color: #ffab40;
-    /* เปลี่ยนสีพื้นหลัง */
+    transform: scale(1.05); /* ขยายขนาดเมื่อ hover */
+    background-color: #ffab40; /* เปลี่ยนสีพื้นหลัง */
 }
-
 
 /* เมื่อ hover ที่ .menu-item */
 .menu-item:hover .menu-item-description {
-    color: #ff8c00;
-    /* เปลี่ยนสีเมื่อ hover */
+    color: #ff8c00; /* เปลี่ยนสีเมื่อ hover */
 }
-
+.menu-item a {
+    text-decoration: none; /* ลบเส้นใต้ */
+    color: inherit; /* ใช้สีเดียวกับข้อความ */
+    display: block;
+    text-align: center;
+}
 
 footer {
     background: #333;
