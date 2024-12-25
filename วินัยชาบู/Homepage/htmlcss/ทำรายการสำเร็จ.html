@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ทำรายการสำเร็จ</title>
+    <link rel="stylesheet" href="ทำรายการสำเร็จ.css">
+</head>
+<body>
+    <div class="success-box">
+        <button class="close-btn" onclick="closeBox()">&times;</button>
+        <h1>ทำรายการสำเร็จ</h1>
+        <div class="table-info">
+            <p>หมายเลขโต๊ะ</p>
+            <p id="table-number">1</p>
+        </div>
+        <div class="table-info">
+            <p>เวลา</p>
+            <p id="time">16:00</p>
+        </div>
+        <div class="note">
+            <p>ควรมาก่อนเวลา 15 นาที</p>
+            <p>และโปรดแคปหน้าจอเพื่อแสดงต่อพนักงาน</p>
+        </div>
+    </div>
+
+    <script>
+        function closeBox() {
+            const box = document.querySelector('.success-box');
+            box.style.display = 'none';
+        }
+
+        // ตั้งค่าค่าตัวเลขโต๊ะและเวลา (สามารถปรับตามความต้องการได้)
+        document.getElementById("table-number").textContent = "1";
+        document.getElementById("time").textContent = "16:00";
+    </script>
+</body>
+</html>
