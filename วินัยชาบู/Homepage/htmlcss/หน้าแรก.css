@@ -252,9 +252,7 @@ footer a:hover {
 /* การตั้งตำแหน่งของโต๊ะภายในสี่เหลี่ยม */
 .table1 {
     top: 30%;
-    /* ค่าตั้งจากบน 30% ของความสูงของสี่เหลี่ยม */
     left: 32%;
-    /* ค่าตั้งจากซ้าย 32% ของความกว้างของสี่เหลี่ยม */
     width: 9%;
     height: 10%;
 }
@@ -391,9 +389,10 @@ footer a:hover {
     width: 9%;
     height: 10%;
 }
+
 .table.booked {
-    background-color: #ffcccc;
-    color: gray;
+    background-color: gray;
+    color: rgb(255, 255, 255);
     cursor: not-allowed;
 }
 
@@ -480,7 +479,74 @@ footer a:hover {
     transform: translate(-50%, -50%);
     /* เลื่อนจุดกึ่งกลาง */
 }
+.rectangle4 {
+    position: absolute;
+    /* ใช้ตำแหน่งแบบ absolute */
+    width: 10px;
+    height: 10px;
+    background-color: #ff6f00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-family: Arial, sans-serif;
 
+    /* ปรับตำแหน่ง */
+    top: 90%;
+    /* ด้านบน 50% */
+    left: 5%;
+    /* ด้านซ้าย 50% */
+    transform: translate(-50%, -50%);
+    /* เลื่อนจุดกึ่งกลาง */
+}
+.rectangle4-text {
+    position: absolute;
+    /* วางตำแหน่ง */
+    top: 90%;
+    /* จัดให้ตรงกับ .rectangle4 */
+    left: 8%;
+    /* ข้อความอยู่ด้านขวา */
+    transform: translateY(-50%);
+    /* จัดตรงกลางแนวตั้ง */
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    /* สีข้อความ */
+}
+.rectangle5 {
+    position: absolute;
+    /* ใช้ตำแหน่งแบบ absolute */
+    width: 10px;
+    height: 10px;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-family: Arial, sans-serif;
+
+    /* ปรับตำแหน่ง */
+    top: 95%;
+    /* ด้านบน 50% */
+    left: 5%;
+    /* ด้านซ้าย 50% */
+    transform: translate(-50%, -50%);
+    /* เลื่อนจุดกึ่งกลาง */
+}
+.rectangle5-text {
+    position: absolute;
+    /* วางตำแหน่ง */
+    top: 95%;
+    /* จัดให้ตรงกับ .rectangle4 */
+    left: 8%;
+    /* ข้อความอยู่ด้านขวา */
+    transform: translateY(-50%);
+    /* จัดตรงกลางแนวตั้ง */
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    /* สีข้อความ */
+}
 /* CSS for Review Button */
 #review {
     display: flex;
