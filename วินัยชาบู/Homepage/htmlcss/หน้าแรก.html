@@ -72,11 +72,15 @@
                             <div class="table table18" id="table-18" onclick="handleTableClick(18)">18</div>
                             <div class="table table19" id="table-19" onclick="handleTableClick(19)">19</div>
                             <div class="table table20" id="table-20" onclick="handleTableClick(20)">20</div>
-
                             <div class="rectangle">ครัว</div>
                             <div class="rectangle1">ครัว</div>
                             <div class="rectangle2">แคชเชียร์</div>
                             <div class="rectangle3">ประตู</div>
+                            <div class="rectangle4"></div>
+                            <div class="rectangle4-text">สามารถจองได้</div>
+                            <div class="rectangle5"></div>
+                            <div class="rectangle5-text">ไม่สามารถจองได้</div>
+
                         </div>
                     </section>
                 </section>
@@ -93,31 +97,32 @@
     </div>
 
     <script>
-        // ฟังก์ชันสำหรับจัดการการคลิกโต๊ะ
         function handleTableClick(tableNumber) {
-            const bookedTables = JSON.parse(localStorage.getItem("bookedTables")) || [];
-            if (bookedTables.includes(tableNumber.toString())) {
-                alert(`โต๊ะ ${tableNumber} ถูกจองแล้ว`);
-            } else {
-                window.location.href = `../htmlcss/ฟอร์มการจอง.html?table=${tableNumber}`;
-            }
-        }
+    const bookedTables = JSON.parse(localStorage.getItem("bookedTables")) || [];
+    if (bookedTables.includes(tableNumber.toString())) {
+        // ลิงก์ไปที่หน้า "ยกเลิกการจอง.html"
+        window.location.href = `../htmlcss/ยกเลิกจอง.html?table=${tableNumber}`;
+    } else {
+        // ลิงก์ไปที่หน้า "ฟอร์มการจอง.html"
+        window.location.href = `../htmlcss/ฟอร์มการจอง.html?table=${tableNumber}`;
+    }
+}
 
-        // อัปเดตสถานะของโต๊ะที่จองแล้ว
-        function updateTableStatus() {
-            const bookedTables = JSON.parse(localStorage.getItem("bookedTables")) || [];
-            bookedTables.forEach(tableNumber => {
-                const tableElement = document.getElementById(`table-${tableNumber}`);
-                if (tableElement) {
-                    tableElement.textContent = `โต๊ะ ${tableNumber} (จองแล้ว)`;
-                    tableElement.classList.add("booked");
-                    tableElement.onclick = null; // ปิดการคลิก
-                }
-            });
+function updateTableStatus() {
+    const bookedTables = JSON.parse(localStorage.getItem("bookedTables")) || [];
+    bookedTables.forEach(tableNumber => {
+        const tableElement = document.getElementById(`table-${tableNumber}`);
+        if (tableElement) {
+            tableElement.textContent = `${tableNumber}`;
+            tableElement.classList.add("booked");
+            // ยังคงการคลิกได้
         }
+    });
+}
 
-        // เรียกฟังก์ชันเมื่อโหลดหน้า
-        updateTableStatus();
+// เรียกฟังก์ชันเมื่อโหลดหน้า
+updateTableStatus();
+
     </script>
 </body>
 

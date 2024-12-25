@@ -57,8 +57,21 @@
             return false; // ยกเลิกการส่งฟอร์ม
         }
 
+        // บันทึกข้อมูลการจองใน localStorage
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const people = document.getElementById('people').value;
+
+        let bookings = JSON.parse(localStorage.getItem('bookings')) || {};
+        bookings[tableInput] = { name, phone, people, time: timeInput };
+        localStorage.setItem('bookings', JSON.stringify(bookings));
+
+        alert(`โต๊ะหมายเลข ${tableInput} ถูกจองเรียบร้อยแล้ว`);
         return true; // อนุญาตให้ส่งฟอร์ม
-    }
+        }
+
+        return true; // อนุญาตให้ส่งฟอร์ม
+     
 </script>
 </body>
 </html>

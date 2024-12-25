@@ -9,7 +9,7 @@
 <body>
 <div class="form-container">
     <h2>โปรดกรอกข้อมูล</h2>
-    <form action="#" method="post">
+    <form id="cancel-form">
         <input type="text" name="name" placeholder="ชื่อ" required>
         <input type="text" name="phone" placeholder="เบอร์โทรศัพท์" required>
         <div class="form-buttons">
@@ -18,5 +18,29 @@
         </div>
     </form>
 </div>
+
+<script>
+    // ดึงหมายเลขโต๊ะจาก URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const tableNumber = urlParams.get('table');
+
+    // จัดการเมื่อฟอร์มถูกส่ง
+    document.getElementById('cancel-form').addEventListener('submit', function (event) {
+        event.preventDefault(); // ป้องกันการโหลดหน้าใหม่
+
+        // ดึงรายการโต๊ะที่จองไว้จาก localStorage
+        let bookedTables = JSON.parse(localStorage.getItem('bookedTables')) || [];
+
+        // ลบหมายเลขโต๊ะออกจากรายการ
+        bookedTables = bookedTables.filter(number => number !== tableNumber);
+
+        // บันทึกข้อมูลกลับไปที่ localStorage
+        localStorage.setItem('bookedTables', JSON.stringify(bookedTables));
+
+        // แจ้งเตือนผู้ใช้และกลับไปหน้าแรก
+        alert(`โต๊ะหมายเลข ${tableNumber} ได้ถูกยกเลิกการจองเรียบร้อยแล้ว`);
+        window.location.href = '../htmlcss/หน้าแรก.html';
+    });
+</script>
 </body>
 </html>
