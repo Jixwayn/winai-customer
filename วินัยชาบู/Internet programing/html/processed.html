@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winai's Shabu</title>
+    <link rel="stylesheet" href="menu.css">
+       <!-- Preload Resource -->
+    <link rel="preload" href="/img/meat/beef.jpg" as="image">
+    <link rel="preload" href="/img/vegatable/vegatable.jpg" as="image">
+    <link rel="preload" href="/img/seafood/seafood.jpg" as="image">
+    <link rel="preload" href="/img/other/other.jpg" as="image">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Winai's Shabu</h1>
+        </header>
+        <div class="promotion-banner">
+            <p>โปรโมชันพิเศษสำหรับเดือนนี้! ลดราคาสุดคุ้มทุกวันจันทร์-พฤหัสบดี</p>
+        </div>
+        <div class="top-bar">
+            <span class="back-button">←</span>
+            <div class="search-bar">
+                <input type="text" placeholder="ค้นหา">
+                <button>🔍</button>
+            </div>
+        </div>
+        <main>
+            <section id="menu-section">
+                <div class="menu-carousel">
+                    <div class="menu-item">
+                        <a href="soup.html">
+                            <img src="../img/Soups/Soup.jpg" alt="น้ำซุป">
+                            <p>น้ำซุป</p>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="meat-menu.html">
+                            <img src="../img/meat/beef.jpg" alt="เนื้อสัตว์">
+                            <p>เนื้อสัตว์</p>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="vegatable-menu.html">
+                            <img src="../img/vegatable/vegatable.jpg" alt="ผักสด">
+                            <p>ผัก</p>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="seafood-menu.html">
+                            <img src="../img/seafood/seafood.jpg" alt="ทะเล">
+                            <p>ทะเล</p>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="processed.html">
+                            <img src="../img/processed/IMG_9996.JPG" alt="อาหารแปรรูป">
+                            <p>อาหารแปรรูป</p>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="fruit.html">
+                            <img src="../img/Fruits/IMG_9989.JPG" alt="ผลไม้">
+                            <p>ผลไม้</p>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="other-menu.html">
+                            <img src="../img/other/other.jpg" alt="อื่นๆ">
+                            <p>อื่นๆ</p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+                        <!-- Filter Section -->
+        <section id="filter-section">
+            <div class="filter-container">
+                <label for="category-filter">หมวดหมู่:</label>
+                <select id="category-filter">
+                    <option value="all">ทั้งหมด</option>
+                    <option value="soup">เซตหมู</option>
+                    <option value="meat">เซตเนื้อ</option>
+                    <option value="vegetable">เซตทะเล</option>
+                    <option value="seafood">เซตมังสวิรัติ</option>
+                    <option value="processed">เซต Mix</option>
+                </select>
+            </div>
+        </section>
+
+            <section id="image-gallery">
+                <div class="image-grid">
+                    <div class="image-item">
+                        <img src="../img/processed/ขนมปังหน้ากุ้ง.png">
+                        <p>ขนมปังหน้ากุ้ง</p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../img/processed/ปอเปี๊ยะทอด.png">
+                        <p>ปอเปี๊ยะทอด</p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../img/processed/ปอเปี๊ยะสด.png">
+                        <p>ปอเปี๊ยะสด</p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../img/processed/ลูกชิ้นปิงปอง.png">
+                        <p>ลูกชิ้นปิงปอง</p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../img/processed/ลูกชิ้นปู.png">
+                        <p>ลูกชิ้นปู</p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../img/processed/ฮ่อยจ๊อปูจักรพรรดิ.png">
+                        <p>ฮ่อยจ๊อปูจักรพรรดิ</p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../img/processed/มาม่า.JPG">
+                        <p>มาม่า</p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../img/processed/อุด้ง.png">
+                        <p>อุด้ง</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>ติดต่อเรา: 
+                <a href="tel:0123456789">012-345-6789</a> | 
+                <a href="https://facebook.com/example">Facebook</a> | 
+                <a href="https://maps.google.com">แผนที่ร้าน</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
