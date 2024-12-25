@@ -11,20 +11,72 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            /*background: linear-gradient(to right, #ff6f00, #f9f9f9);
+            color: 333;*/
         }
+        h1 {
+            background: linear-gradient(to right, #ff6f00,#ff6f00,#ff6f00, #f5e6d3); /* ไล่สีพื้นหลัง */
+            color: #ffffff; /* สีของตัวอักษร */
+            text-align: center; /* จัดให้อยู่กึ่งกลาง */
+            padding: 30px 0; /* ความสูงของแถบพื้นหลัง */
+            margin: 0 auto; /* ลบระยะห่างรอบ h1 */
+            max-width: 800;
+            width: 100%; /* ทำให้พื้นหลังเต็มความกว้างหน้าจอ */
+            box-sizing: border-box; /* รวม padding ในความกว้าง */
+            position: absolute; /* ทำให้สามารถแสดงผลเต็มพื้นที่ */
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            box-sizing: border-box;
+            /*left: 0; /* ทำให้ขอบด้านซ้ายชิดขอบ */
+            /*right: 0; /* ทำให้ขอบด้านขวาชิดขอบ */
+            
+        
+        }
+        
     
         .review-container {
+            position: relative;
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
         }
     
         .filters {
             padding: 10px;
         }
+        .filter-group.food-quality {
+            text-align: center; /* ทำให้ข้อความอยู่กลาง */
+            /*margin-bottom: 20px;*/
+        }
+        
+        .filter-group.food-quality label {
+            display: inline-block;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        .filter-group label:first-of-type{
+            text-align: center;
+            border-bottom: 0.5px solid #ccc; /* เส้นจางใต้หัวข้อ */
+            padding-bottom: 20px; /* เพิ่มระยะห่างระหว่างเส้นและข้อความ */
+            margin-bottom: 15px; /* ระยะห่างเพิ่มเติม */
+            display: block; /* ทำให้เส้นกินพื้นที่เต็ม */
+        }
+        .staff-quality-section{ 
+            margin-top: 50px;
+        }
     
         .filter-group {
-            margin-bottom: 30px; /* เพิ่มระยะห่างระหว่างหมวดหมู่ */
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px; /* เพิ่มระยะห่างระหว่างหมวดหมู่ */
+            font-weight: bold;
+            text-align: left;
+            /*border: 1px solid blue;*/
         }
     
         .filter-group label {
@@ -36,8 +88,11 @@
         .rating {
             display: flex;
             align-items: center; /* จัดให้เนื้อหาอยู่กึ่งกลางแนวตั้ง */
+            justify-content: center;
             gap: 20px; /* เพิ่มระยะห่างระหว่าง "ให้คะแนน" และปุ่ม */
             margin: 10px 0;
+            
+            /*border: 1px solid red; /* ใช้เพื่อตรวจสอบขอบ */
         }
     
         .rating span {
@@ -48,6 +103,7 @@
         .dropdown {
             flex-grow: 1; /* ทำให้ปุ่มขยายความกว้างตามพื้นที่ที่เหลือ */
             position: relative;
+            text-align: center;
         }
     
         .dropbtn {
@@ -62,17 +118,24 @@
         }
     
         .dropdown-content {
-            display: none;
+            display: None;
             position: absolute;
+            top: 100%;
+            left: 50%;
+            width: 100%;
+            transform: translate(-50%);
             background-color: #f9f9f9;
             box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
             z-index: 1;
             padding: 10px;
-            width: 100%;
+            justify-content: center;
+            gap: 10px;
+            border-radius: 8px;
+
         }
     
         .dropdown.show .dropdown-content {
-            display: block;
+            display: flex;
         }
     
         .star {
@@ -98,7 +161,7 @@
             display: block;
             margin: 20px auto;
             padding: 10px 20px;
-            background-color: #4CAF50;
+            background-color: #ff6f00;
             color: white;
             border: none;
             border-radius: 5px;
@@ -106,7 +169,7 @@
         }
     
         .submit-button:hover {
-            background-color: #45a049;
+            background-color: #11ce27;
         }
     
         @media (max-width: 768px) {
@@ -135,6 +198,7 @@
         <h1>Winai's Shabu</h1>
         <div class="filters">
             <h2>Filters</h2>
+
 
             <div class="filter-group">
                 <label for="food-quality">คุณภาพอาหาร</label>
@@ -215,7 +279,7 @@
                 </div>
             </div>
 
-            <div class="filter-group">
+            <div class="filter-group staff-quality-section">
                 <label for="staff-quality">คุณภาพพนักงาน</label>
 
                 <label for="staff-reception">พนักงานต้อนรับ</label>
