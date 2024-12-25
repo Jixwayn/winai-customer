@@ -41,7 +41,8 @@
 
         .grid-item img {
             max-width: 100%;
-            height: auto;
+            max-height: 150px; /* ปรับขนาดภาพให้เล็กลง */
+            object-fit: cover;
             border-bottom: 1px solid #ddd;
         }
 
@@ -53,7 +54,8 @@
 
         .footer {
             display: flex;
-            justify-content: space-between;
+            justify-content: center; /* จัดปุ่มให้อยู่ตรงกลาง */
+            gap: 10px; /* เพิ่มระยะห่างระหว่างปุ่ม */
             align-items: center;
             padding: 10px;
             background-color: #333;
@@ -83,36 +85,34 @@
     <div class="grid-container">
         <!-- ช่องรูปอาหาร -->
         <div class="grid-item">
-            <img src="ฮ่องเต้น้อย.jpg" alt="อาหาร 1">
-            <p>อาหารจานที่ 1</p>
+            <img src="../img/meat/beef.jpg" alt="เนื้อสัตว์">
+            <p>เนื้อสัตว์</p>
+            <button onclick="addToOrder('เนื้อสัตว์')">เลือก</button>
         </div>
         <div class="grid-item">
-            <img src="food2.jpg" alt="อาหาร 2">
-            <p>อาหารจานที่ 2</p>
+            <img src="../img/vegatable/vegatable.jpg" alt="ผักสด">
+            <p>ผักสด</p>
+            <button onclick="addToOrder('ผักสด')">เลือก</button>
         </div>
         <div class="grid-item">
-            <img src="food3.jpg" alt="อาหาร 3">
-            <p>อาหารจานที่ 3</p>
+            <img src="../img/seafood/seafood.jpg" alt="ทะเล">
+            <p>ทะเล</p>
+            <button onclick="addToOrder('ทะเล')">เลือก</button>
         </div>
         <div class="grid-item">
-            <img src="food4.jpg" alt="อาหาร 4">
-            <p>อาหารจานที่ 4</p>
+            <img src="../img/processed/IMG_9996.JPG" alt="อาหารแปรรูป">
+            <p>อาหารแปรรูป</p>
+            <button onclick="addToOrder('อาหารแปรรูป')">เลือก</button>
         </div>
         <div class="grid-item">
-            <img src="ฮ่องเต้น้อย.jpg" alt="อาหาร 5">
-            <p>อาหารจานที่ 5</p>
+            <img src="../img/Fruits/IMG_9989.JPG" alt="ผลไม้">
+            <p>ผลไม้</p>
+            <button onclick="addToOrder('ผลไม้')">เลือก</button>
         </div>
         <div class="grid-item">
-            <img src="food2.jpg" alt="อาหาร 6">
-            <p>อาหารจานที่ 6</p>
-        </div>
-        <div class="grid-item">
-            <img src="food3.jpg" alt="อาหาร 7">
-            <p>อาหารจานที่ 7</p>
-        </div>
-        <div class="grid-item">
-            <img src="food4.jpg" alt="อาหาร 8">
-            <p>อาหารจานที่ 8</p>
+            <img src="../img/other/other.jpg" alt="อื่นๆ">
+            <p>อื่นๆ</p>
+            <button onclick="addToOrder('อื่นๆ')">เลือก</button>
         </div>
     </div>
 
@@ -122,9 +122,23 @@
     </div>
 
     <script>
+        // เก็บรายการอาหารที่เลือก
+        let orderList = [];
+
+        function addToOrder(item) {
+            orderList.push(item);
+            alert(`${item} ถูกเพิ่มในออเดอร์แล้ว!`);
+        }
+
         function goToOrder() {
-            // ลิงก์ไปยังหน้าดูออเดอร์
-            window.location.href = "order.html";
+            // แสดงออเดอร์ที่เลือกไว้
+            if (orderList.length === 0) {
+                alert("ยังไม่มีรายการในออเดอร์");
+                return;
+            }
+
+            let orderDetails = "รายการที่เลือก:\n" + orderList.join("\n");
+            alert(orderDetails);
         }
 
         function goToPayment() {
@@ -134,3 +148,4 @@
     </script>
 </body>
 </html>
+
