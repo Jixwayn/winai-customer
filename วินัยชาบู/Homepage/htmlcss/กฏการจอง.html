@@ -12,7 +12,7 @@
     <div class="modal">
         <div class="modal-header">
             <h2>กฎการจอง</h2>
-            <a class="close-button" href="ฟอร์มการจอง.html">&times;</a>
+            <a class="close-button" href="javascript:void(0)" onclick="goBack()">&times;</a>
         </div>
         <div class="modal-content">
             <ol>
@@ -22,8 +22,16 @@
                 <li>กรุณาแคปหน้าจอเมื่อจองสำเร็จเพื่อแสดงหลักฐานการยืนยันกับทางร้าน</li>
             </ol>
         </div>
-        <button class="confirm-button">ยืนยัน</button>
+        <button class="confirm-button" onclick="goBack()">ยืนยัน</button>
     </div>
+
+    <script>
+        // ฟังก์ชันสำหรับกลับไปหน้าก่อนหน้า
+        function goBack() {
+            // ย้อนกลับไปหน้าก่อนหน้า
+            history.back();
+        }
+    </script>
 </body>
 
 </html>
