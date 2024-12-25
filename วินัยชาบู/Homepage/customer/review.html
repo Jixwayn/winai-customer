@@ -333,7 +333,7 @@
                 <textarea id="review" name="review" rows="5" placeholder="เขียนรีวิวของคุณที่นี่..."></textarea>
             </div>
 
-            <button type="submit" class="submit-button">ยืนยัน</button>
+            <button type="button" class="submit-button" onclick="goBack()">ยืนยัน</button>
         </div>
     </div>
 
@@ -360,6 +360,10 @@
                 }
             });
         });
+
+        function goBack() {
+        window.history.back(); // กลับไปหน้าก่อนหน้า
+    }
     </script>
 </body>
 </html>

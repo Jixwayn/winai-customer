@@ -50,6 +50,8 @@ body {
   .button.confirm {
     background-color: #f25a41;
     color: #fff;
+    text-decoration: none; /* เอาขีดเส้นใต้ลิงก์ออก */
+
   }
   
   .note {
