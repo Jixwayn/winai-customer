@@ -81,57 +81,57 @@ main {
     align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
     height: 100%; /* ครอบคลุมหน้าจอ */
 }
-/* การตั้งค่า Carousel */
 .menu-carousel {
     display: flex;
     overflow-x: auto; /* เปิดการเลื่อนแนวนอน */
-    gap: 1rem;
-    padding: 0 1rem; /* เพิ่มขอบภายในด้านซ้ายและขวา */
-    padding-left: 2rem; /* เพิ่มระยะห่างทางซ้ายมากขึ้น */
-    scroll-snap-type: x mandatory; /* ใช้ snap */
-    scroll-padding-left: 2rem; /* ระยะ snap จากซ้าย */
+    gap: 1.5rem; /* ระยะห่างระหว่างกล่องเมนู */
+    padding: 0 1rem; /* เพิ่ม Padding เพื่อให้เลื่อนได้จนสุด */
+    scroll-snap-type: x mandatory; /* ใช้ Snap */
     align-items: center;
+    justify-content: flex-start; /* เริ่มต้นจากซ้าย (สำหรับ Scroll) */
 }
 
-/* การตั้งค่าของ Item */
-/* การตั้งค่าของ Item */
+.menu-carousel::before,
+.menu-carousel::after {
+    content: ''; /* เพิ่มเนื้อหาว่าง */
+    flex: 0 0 5%; /* ขนาด Flex เท่ากับ 50% ของพื้นที่ */
+}
+
 .menu-item {
     flex: 0 0 auto;
     width: 150px;
-    height: 120px;
+    height: 150px; /* เพิ่มความสูงเพื่อรองรับข้อความ */
     background-color: #ffe0b2;
     color: #ff6f00;
     text-align: center;
-    position: relative; /* กำหนดตำแหน่ง relative เพื่อให้ข้อความใช้ตำแหน่ง absolute ได้ */
+    position: relative;
     border-radius: 10px;
     font-size: 1rem;
-    scroll-snap-align: start;
+    scroll-snap-align: center;
     transition: transform 0.3s ease, background-color 0.3s ease;
-    margin-left: 3.5rem; /* ขยับแต่ละเมนูไปทางขวาเล็กน้อย */
-    overflow: hidden; /* ป้องกันการเลื่อนที่เกิดขึ้น */
 }
 
 .menu-item img {
     width: 100%;
-    height: 100%;
+    height: 100px; /* กำหนดขนาดรูปภาพ */
     object-fit: cover;
     border-radius: 8px;
-    transition: transform 0.3s ease; /* ขยายรูปเฉพาะเมื่อ hover */
 }
+
 
 .menu-item:hover {
     background-color: #ffab40;
     transform: scale(1.05); /* ขยายเมื่อ hover */
 }
-.menu-item p {
+/* .menu-item p {
     position: absolute;
-    bottom: 10px; /* ให้ข้อความอยู่ที่ด้านล่างของกล่อง */
+    bottom: 10px; ให้ข้อความอยู่ที่ด้านล่างของกล่อง 
     left: 0;
     right: 0;
     margin: 0;
     color: #1c29dd;
     font-size: 1rem;
-}
+}*/
 
 /* เมื่อ hover ที่ .menu-item */
 .menu-item:hover {
@@ -170,6 +170,10 @@ footer a:hover {
     .menu-button, .review-button {
         font-size: 1.1rem;
         padding: 1rem 1.5rem;
+    }
+    .menu-carousel {
+        gap: 0.2rem; /* ลดระยะห่างระหว่างกล่องเมนูในหน้าจอเล็ก */
+        padding: 0; /* ลบ padding ของคอนเทนเนอร์ */
     }
 }
 /* การตั้งค่าสำหรับสี่เหลี่ยมที่เพิ่มใต้แผนผังร้าน */
@@ -411,19 +415,22 @@ footer a:hover {
     justify-content: center;
     align-items: center;
     height: 10vh; /* Full viewport height */
+    margin-top: 20px; /* เพิ่มระยะห่างด้านบน */
 }
+
 
 .review-button {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 15px 30px;
     background-color: #ff6600; /* Orange color */
     color: #ffffff; /* White text */
     text-decoration: none; /* Remove underline */
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Slight shadow */
     transition: background-color 0.3s ease, transform 0.3s ease; /* Hover effect */
+    
 }
 
 .review-button:hover {
