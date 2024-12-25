@@ -9,6 +9,7 @@
 <body>
 <div class="form-container">
     <h1>ฟอร์มการจอง</h1>
+    <a class="close-button" href="javascript:void(0)" onclick="goBack()">&times;</a>
     <form action="ตรวจสอบข้อมูลการจอง.html" method="GET" onsubmit="return validateForm()">
         <input type="hidden" id="table" name="table" value="">
         
@@ -66,12 +67,25 @@
         bookings[tableInput] = { name, phone, people, time: timeInput };
         localStorage.setItem('bookings', JSON.stringify(bookings));
 
-        alert(`โต๊ะหมายเลข ${tableInput} ถูกจองเรียบร้อยแล้ว`);
-        return true; // อนุญาตให้ส่งฟอร์ม
-        }
+        const bookedTables = JSON.parse(localStorage.getItem('bookedTables')) || [];
+        if (!bookedTables.includes(tableInput)) {
+        bookedTables.push(tableInput);
+        localStorage.setItem('bookedTables', JSON.stringify(bookedTables));
+    }
 
-        return true; // อนุญาตให้ส่งฟอร์ม
+    // เปลี่ยนเส้นทางไปยังหน้าตรวจสอบข้อมูลการจอง
+    window.location.href = `ตรวจสอบข้อมูลการจอง.html?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&people=${encodeURIComponent(people)}&time=${encodeURIComponent(timeInput)}&table=${tableInput}`;
+    return false; // ป้องกันการส่งฟอร์มซ้ำ
+}
      
+</script>
+
+<script>
+    // ฟังก์ชันสำหรับกลับไปหน้าก่อนหน้า
+    function goBack() {
+        // ย้อนกลับไปหน้าก่อนหน้า
+        history.back();
+    }
 </script>
 </body>
 </html>

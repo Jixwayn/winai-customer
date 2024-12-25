@@ -13,7 +13,7 @@
         <input type="text" name="name" placeholder="ชื่อ" required>
         <input type="text" name="phone" placeholder="เบอร์โทรศัพท์" required>
         <div class="form-buttons">
-            <button type="reset" class="cancel">ยกเลิก</button>
+            <button type="button" class="cancel" id="backButton">ยกเลิก</button>
             <button type="submit" class="submit">ยืนยัน</button>
         </div>
     </form>
@@ -39,7 +39,12 @@
 
         // แจ้งเตือนผู้ใช้และกลับไปหน้าแรก
         alert(`โต๊ะหมายเลข ${tableNumber} ได้ถูกยกเลิกการจองเรียบร้อยแล้ว`);
-        window.location.href = '../htmlcss/หน้าแรก.html';
+        window.location.href = 'หน้าแรก.html';
+    });
+
+    // จัดการเมื่อกดยกเลิก
+    document.getElementById('backButton').addEventListener('click', function () {
+        history.back(); // ย้อนกลับไปหน้าที่ผ่านมา
     });
 </script>
 </body>

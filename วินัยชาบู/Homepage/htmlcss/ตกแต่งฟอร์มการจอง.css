@@ -100,3 +100,28 @@ a {
         font-size: 14px;
     }
 }
+.form-container {
+    position: relative; /* เพิ่มตำแหน่งเพื่อให้ close-button อิงตำแหน่งได้ */
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px; /* ระยะห่างจากด้านบนของกรอบ */
+    right: 10px; /* ระยะห่างจากด้านขวาของกรอบ */
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #df0606;
+    line-height: 1; /* ลดระยะห่างของไอคอน */
+}
+
+.close-button:hover {
+    color: #b50505; /* สีเข้มขึ้นเมื่อวางเมาส์ */
+}

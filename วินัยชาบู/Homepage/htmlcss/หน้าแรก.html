@@ -36,10 +36,10 @@
                     <div class="menu-item"><img src="../img/seafood/seafood.jpg" alt="ทะเล">
                         <p>ทะเล</p>
                     </div>
-                    <div class="menu-item"><img src="../img/processed/IMG_9996.JPG" alt="ทะเล">
+                    <div class="menu-item"><img src="../img/processed/IMG_9996.JPG" alt="อาหารแปรรูป">
                         <p>อาหารแปรรูป</p>
                     </div>
-                    <div class="menu-item"><img src="../img/Fruits/IMG_9989.JPG" alt="อื่นๆ">
+                    <div class="menu-item"><img src="../img/Fruits/IMG_9989.JPG" alt="ผลไม้">
                         <p>ผลไม้</p>
                     </div>
                     <div class="menu-item"><img src="../img/other/other.jpg" alt="อื่นๆ">
@@ -98,30 +98,28 @@
 
     <script>
         function handleTableClick(tableNumber) {
-    const bookedTables = JSON.parse(localStorage.getItem("bookedTables")) || [];
-    if (bookedTables.includes(tableNumber.toString())) {
-        // ลิงก์ไปที่หน้า "ยกเลิกการจอง.html"
-        window.location.href = `../htmlcss/ยกเลิกจอง.html?table=${tableNumber}`;
-    } else {
-        // ลิงก์ไปที่หน้า "ฟอร์มการจอง.html"
-        window.location.href = `../htmlcss/ฟอร์มการจอง.html?table=${tableNumber}`;
-    }
-}
-
-function updateTableStatus() {
-    const bookedTables = JSON.parse(localStorage.getItem("bookedTables")) || [];
-    bookedTables.forEach(tableNumber => {
-        const tableElement = document.getElementById(`table-${tableNumber}`);
-        if (tableElement) {
-            tableElement.textContent = `${tableNumber}`;
-            tableElement.classList.add("booked");
-            // ยังคงการคลิกได้
+            const bookedTables = JSON.parse(localStorage.getItem("bookedTables")) || [];
+             if (bookedTables.includes(tableNumber.toString())) {
+                // ลิงก์ไปที่หน้า "ยกเลิกการจอง.html"
+                window.location.href = `../htmlcss/ยกเลิกจอง.html?table=${tableNumber}`;
+            } else {
+                // ลิงก์ไปที่หน้า "ฟอร์มการจอง.html"
+                window.location.href = `../htmlcss/ฟอร์มการจอง.html?table=${tableNumber}`;
+            }
         }
-    });
-}
-
-// เรียกฟังก์ชันเมื่อโหลดหน้า
-updateTableStatus();
+        function updateTableStatus() {
+            const bookedTables = JSON.parse(localStorage.getItem("bookedTables")) || [];
+            bookedTables.forEach(tableNumber => {
+                const tableElement = document.getElementById(`table-${tableNumber}`);
+                if (tableElement) {
+                    /*tableElement.textContent = `${tableNumber}`;*/
+                    tableElement.classList.add("booked");
+                    // ยังคงการคลิกได้
+                    }
+                });
+            }
+            // เรียกฟังก์ชันเมื่อโหลดหน้า
+            updateTableStatus();
 
     </script>
 </body>
