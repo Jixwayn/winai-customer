@@ -9,7 +9,9 @@
 <body>
 <div class="form-container">
     <h1>ฟอร์มการจอง</h1>
-    <form action="ตรวจสอบข้อมูลการจอง.html" method="GET" onsubmit="return validateTime()">
+    <form action="ตรวจสอบข้อมูลการจอง.html" method="GET" onsubmit="return validateForm()">
+        <input type="hidden" id="table" name="table" value="">
+        
         <label for="name">ชื่อ</label>
         <input type="text" id="name" name="name" placeholder="ชื่อ" value="" required>
         
@@ -34,18 +36,27 @@
 <script>
     // ดึงค่าจาก URL Parameters แล้วเติมลงในฟอร์ม
     const urlParams = new URLSearchParams(window.location.search);
+    document.getElementById('table').value = urlParams.get('table') || ''; // เติมค่า table
     document.getElementById('name').value = urlParams.get('name') || '';
     document.getElementById('phone').value = urlParams.get('phone') || '';
     document.getElementById('people').value = urlParams.get('people') || '';
     document.getElementById('time').value = urlParams.get('time') || '';
 
-    // ตรวจสอบเวลาที่กรอกให้เป็นไปตามช่วง 16:00 ถึง 19:00
-    function validateTime() {
+    // ตรวจสอบข้อมูลในฟอร์ม
+    function validateForm() {
         const timeInput = document.getElementById('time').value;
+        const tableInput = document.getElementById('table').value;
+
         if (timeInput < "16:00" || timeInput > "19:00") {
             alert("กรุณาเลือกเวลาในช่วง 16:00 ถึง 19:00");
             return false; // ยกเลิกการส่งฟอร์ม
         }
+
+        if (!tableInput) {
+            alert("ไม่พบหมายเลขโต๊ะ กรุณาเลือกโต๊ะใหม่");
+            return false; // ยกเลิกการส่งฟอร์ม
+        }
+
         return true; // อนุญาตให้ส่งฟอร์ม
     }
 </script>

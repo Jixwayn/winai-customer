@@ -25,14 +25,28 @@
     </div>
 
     <script>
-        function closeBox() {
-            const box = document.querySelector('.success-box');
-            box.style.display = 'none';
-        }
+        // ดึงข้อมูลหมายเลขโต๊ะและเวลา จาก URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const tableNumber = urlParams.get('table') || '1';
+        const time = urlParams.get('time') || '16:00';
+    
+        // แสดงข้อมูลหมายเลขโต๊ะและเวลา
+        document.getElementById('table-number').textContent = tableNumber;
+        document.getElementById('time').textContent = time;
 
-        // ตั้งค่าค่าตัวเลขโต๊ะและเวลา (สามารถปรับตามความต้องการได้)
-        document.getElementById("table-number").textContent = "1";
-        document.getElementById("time").textContent = "16:00";
+        // ฟังก์ชันเมื่อกดปุ่มปิด
+        function closeBox() {
+            // เก็บหมายเลขโต๊ะที่จองใน LocalStorage
+            const bookedTables = JSON.parse(localStorage.getItem("bookedTables")) || [];
+            if (!bookedTables.includes(tableNumber)) {
+                bookedTables.push(tableNumber);
+                localStorage.setItem("bookedTables", JSON.stringify(bookedTables));
+            }
+
+            // กลับไปที่หน้าแรก
+            window.location.href = "index.html"; // เปลี่ยนเป็น path ของหน้าแรก
+        }
     </script>
+    
 </body>
 </html>
