@@ -10,7 +10,7 @@ body {
     height: 100vh;
 }
 
-.container1 {
+.container {
     width: 100%;
     height: 100%;
     display: flex;
@@ -31,37 +31,6 @@ header h1 {
     font-size: 2rem;
     letter-spacing: 1px;
 }
-.promotion-banner {
-    background-color: #ff5722;
-    color: #fff;
-    padding: 1.5rem;
-    text-align: center;
-    font-size: 1.3rem;
-    font-weight: 600;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-a {
-    text-decoration: none;
-}
-
-nav {
-    display: flex;
-    background-color: #534f4f;
-    width: 100%;
-    height: 40px;
-    align-items: center;
-    justify-content: center;
-}
-
-
-/* ส่วนหัว Header 
-.header1 {
-    background-color: #e44b1b;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-}*/
-/* เปลี่ยนจาก .header1 เป็น .top-bar */
 .top-bar {
     background-color: #e44b1b;
     padding: 20px;
@@ -133,6 +102,48 @@ nav {
     cursor: pointer;
     color: #757575;
 }
+nav {
+    background: #ffefe0; /* สีพื้นหลัง */
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* เงา */
+    border: 2px solid #ff6f61; /* กรอบสีน้ำเงินรอบๆ แถบเมนู */
+    border-radius: 10px; /* มุมโค้ง */
+}
+
+nav a {
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: #FF6F61; /* สีของตัวอักษรในเมนู */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #FF5722; /* สีของตัวอักษรเมื่อ hover */
+}
+
+
+.promotion-banner {
+    background-color: #ff5722;
+    color: #fff;
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    flex-grow: 1; /* ขยายส่วนนี้ให้เต็มพื้นที่ */
+    display: flex;
+    flex-direction: column; /* เรียงเนื้อหาในแนวตั้ง */
+    gap: 2rem; /* ระยะห่างระหว่างแต่ละส่วน */
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
 /* ส่วนการตั้งค่าในหน้าจอปกติ */
 .menu-section {
     display: flex;
@@ -140,136 +151,184 @@ nav {
     align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
     height: 100%; /* ครอบคลุมหน้าจอ */
 }
-/* การตั้งค่า Carousel */
 .menu-carousel {
     display: flex;
     overflow-x: auto; /* เปิดการเลื่อนแนวนอน */
-    gap: 1rem;
-    padding: 0 1rem; /* เพิ่มขอบภายในด้านซ้ายและขวา */
-    padding-left: 2rem; /* เพิ่มระยะห่างทางซ้ายมากขึ้น */
-    scroll-snap-type: x mandatory; /* ใช้ snap */
-    scroll-padding-left: 2rem; /* ระยะ snap จากซ้าย */
+    gap: 1.5rem; /* ระยะห่างระหว่างกล่องเมนู */
+    padding: 0 1rem; /* เพิ่ม Padding เพื่อให้เลื่อนได้จนสุด */
+    scroll-snap-type: x mandatory; /* ใช้ Snap */
     align-items: center;
+    justify-content: flex-start; /* เริ่มต้นจากซ้าย (สำหรับ Scroll) */
 }
 
+.menu-carousel::before,
+.menu-carousel::after {
+    content: ''; /* เพิ่มเนื้อหาว่าง */
+    flex: 0 0 5%; /* ขนาด Flex เท่ากับ 50% ของพื้นที่ */
+}
 
-/* การตั้งค่าของ Item */
 .menu-item {
     flex: 0 0 auto;
     width: 150px;
-    height: 120px;
+    height: 150px; /* เพิ่มความสูงเพื่อรองรับข้อความ */
     background-color: #ffe0b2;
     color: #ff6f00;
     text-align: center;
-    line-height: 120px;
+    position: relative;
     border-radius: 10px;
     font-size: 1rem;
-    scroll-snap-align: start;
+    scroll-snap-align: center;
     transition: transform 0.3s ease, background-color 0.3s ease;
-    margin-left: 3.5rem; /* ขยับแต่ละเมนูไปทางขวาเล็กน้อย */
 }
 
-
+.menu-item img {
+    width: 100%;
+    height: 100px; /* กำหนดขนาดรูปภาพ */
+    object-fit: cover;
+    border-radius: 8px;
+}
 
 .menu-item:hover {
     background-color: #ffab40;
     transform: scale(1.05); /* ขยายเมื่อ hover */
 }
-/* หมวดหมู่สินค้า */
-.categories {
-    display: flex;
-    flex-wrap: wrap; /* รองรับหลายบรรทัด */
-    justify-content: center;
-    gap: 15px;
-    padding: 10px 0;
-    background-color: #FF5722;
+
+/* เมื่อ hover ที่ .menu-item */
+.menu-item:hover {
+    transform: scale(1.05); /* ขยายขนาดเมื่อ hover */
+    background-color: #ffab40; /* เปลี่ยนสีพื้นหลัง */
 }
 
-.categories .category {
-    text-align: center;
-    color: white;
-    font-size: 14px;
-    width: 60px;
+/* เมื่อ hover ที่ .menu-item */
+.menu-item:hover .menu-item-description {
+    color: #ff8c00; /* เปลี่ยนสีเมื่อ hover */
+}
+/* New Image Gallery Styles */
+#image-gallery {
+    padding: 2rem;
+    background-color: #f4f4f4;
 }
 
-.categories p {
-    font-family: 'Sarabun', sans-serif;
-    font-size: 16px;
-    color: #ffffff;
-    font-weight: 500;
-}
-
-.categories img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%; /* ทำให้เป็นวงกลม */
-    object-fit: cover; /* ให้ภาพพอดีในวงกลม */
-    border: 3px solid white; /* ขอบวงกลมสีขาว */
-    display: block;
-    margin: 0 auto;
-}
-
-/* รายการสินค้า */
-.product-grid {
+.image-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* ปรับตามขนาดหน้าจอ */
-    gap: 20px;
-    padding: 20px;
-    background-color: #FF5722;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
 }
 
-.product {
-    background-color: white;
-    border-radius: 12px;
-    overflow: hidden;
-    text-align: center;
-    font-size: 14px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.product img {
+.image-item img {
     width: 100%;
-    height: 120px;
+    height: 200px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
-.container p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 160px;
-    height: 30px;
-    border-radius: 15px;
-    background-color: #ff5722;
-    color: #ffffff;
-    font-family: 'Sarabun', sans-serif;
-    font-size: 13.5px;
+.image-item img:hover {
+    transform: scale(1.05);
+}
+
+    /* เพิ่มสไตล์ให้กับลิงค์ในเมนู */
+.menu-item a {
+    text-decoration: none; /* ลบเส้นใต้ */
+    color: inherit; /* ใช้สีเดียวกับข้อความ */
+    display: block;
+    text-align: center;
+}
+
+
+#filter-section {
+    padding: 1rem;
+    background-color: #ffefe0; /* สีพื้นหลัง */
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เงา */
+    border: 1px solid #ff6f61; /* กรอบสีแดง */
+    border-radius: 10px; /* มุมโค้ง */
+    margin: 1rem 0; /* ระยะห่างจากส่วนอื่น */
+}
+
+.filter-container {
+    display: inline-block;
     margin: 0 auto;
 }
 
-
-.product p {
-    font-family: 'Sarabun', sans-serif;
-    font-size: 13.5px;
-    color: #ffffff;
-
+.filter-container label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ff6f61; /* สีของข้อความ */
+    margin-right: 0.5rem;
 }
 
-.product img {
-    max-width: 100%;
-    border-radius: 8px;
+.filter-container select {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.filter-container select:hover {
+    border-color: #ff6f61; /* เปลี่ยนสีขอบเมื่อ hover */
+}
+
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 1.1rem;
+}
+
+footer a {
+    color: #FFAB40;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        gap: 1.5rem;
+    }
+    .menu-button, .review-button {
+        font-size: 1.1rem;
+        padding: 1rem 1.5rem;
+    }
+    .menu-carousel {
+        gap: 0.2rem; /* ลดระยะห่างระหว่างกล่องเมนูในหน้าจอเล็ก */
+        padding: 0; /* ลบ padding ของคอนเทนเนอร์ */
+    }
+}
+
+/* CSS for Review Button */
+#review {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    width: 100%;
-    height: 120px;
-    object-fit: cover;
-
+    height: 10vh; /* Full viewport height */
+    margin-top: 20px; /* เพิ่มระยะห่างด้านบน */
 }
 
-.product p {
-    margin: 5px;
+.review-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #ff6600; /* Orange color */
+    color: #ffffff; /* White text */
+    text-decoration: none; /* Remove underline */
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Slight shadow */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Hover effect */
 }
 
+.review-button:hover {
+    background-color: #e65500; /* Darker orange on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
