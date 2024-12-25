@@ -9,8 +9,8 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #000;
-            color: #fff;
+            background-color: #fff;
+            color: #000;
         }
         .container {
             display: none;
@@ -23,7 +23,7 @@
         .btn {
             padding: 10px 20px;
             background-color: #f90;
-            color: #000;
+            color: #fff;
             border: none;
             cursor: pointer;
         }
@@ -31,11 +31,13 @@
             background-color: #e68a00;
         }
         .card {
-            background-color: #222;
+            background-color: #fff;
             border-radius: 8px;
             padding: 20px;
             margin: 10px auto;
-            max-width: 300px;
+            max-width: 350px;
+            border: 2px solid #000; /* ขอบกรอบสีดำ */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เงาขอบ */
         }
         .dropdown, .input {
             width: 100%;
@@ -43,8 +45,9 @@
             margin: 10px 0;
             border: 1px solid #555;
             border-radius: 4px;
-            background-color: #333;
-            color: #fff;
+            background-color: #fff;
+            color: #000;
+            box-sizing: border-box;
         }
         .close {
             position: absolute;
@@ -57,6 +60,41 @@
             color: #f00;
             font-size: 0.9em;
         }
+        .payment-item {
+            display: flex;
+            justify-content: space-between; /* กระจายพื้นที่ระหว่างแต่ละคอลัมน์ */
+            align-items: center; /* จัดตำแหน่งแนวตั้งให้อยู่ตรงกลาง */
+            margin-bottom: 10px; /* เพิ่มระยะห่างระหว่างบรรทัด */
+        }
+
+        .payment-item p {
+            margin: 0;
+            flex: 1; /* ให้ช่องแต่ละช่องใช้พื้นที่อย่างสมดุล */
+            text-align: center;
+        }
+        .payment-item p:first-child {
+            text-align: left; /* จัดข้อความช่องแรกให้ชิดซ้าย */
+        }
+        .payment-item p:last-child {
+            text-align: right;
+            margin-left: -150px; /* เพิ่มระยะห่างเล็กน้อยระหว่างตัวเลขกับ "บาท" */
+        }
+        
+        .skip-btn {
+            background-color: #ddd;
+            color: #000;
+            border: 1px solid #555;
+            margin-top: 20px; /* ระยะห่างจากกรอบ */
+            padding: 8px 16px; /* ลดขนาดปุ่ม */
+            cursor: pointer;
+            display: block; /* ให้ปุ่มแสดงเป็นบล็อก */
+            width: auto; /* ให้ขนาดของปุ่มไม่ขยายเต็มความกว้าง */
+            margin-left: 60%; /* จัดตำแหน่งให้ปุ่มอยู่กลาง */
+            margin-right: 40%; /* จัดตำแหน่งให้ปุ่มอยู่กลาง */
+        }
+        .skip-btn:hover {
+            background-color: #bbb; /* สีพื้นหลังเมื่อ hover */
+        }
     </style>
 </head>
 <body>
@@ -64,13 +102,14 @@
     <div id="member-screen" class="container active">
         <div class="card">
             <h2>คุณได้เป็นสมาชิกของร้าน Winai's Shabu หรือไม่</h2>
-            <p>กรุณากรอกข้อมูล</p>
-            <input type="text" id="name" class="input" placeholder="ชื่อ-นามสกุล">
+            <h4>กรุณากรอกข้อมูล</h4>
+            <input type="text" id="name" class="input" placeholder="ชื่อ">
+            <input type="text" id="name" class="input" placeholder="รหัสผ่าน">
             <span id="name-error" class="error"></span>
             <button class="btn" onclick="validateName()">ยืนยัน</button>
-            <br>
             <button class="btn" onclick="goToSignup()">สมัครสมาชิก</button>
         </div>
+        <button class="btn skip-btn" onclick="skipToPayment()">ข้าม</button>
     </div>
 
     <!-- หน้าสมัครสมาชิก -->
@@ -100,6 +139,18 @@
                     <label for="lastName">*นามสกุล</label>
                     <input type="text" id="lastName" name="lastName" required>
                 </div>
+
+                <!-- ศาสนา -->
+            <div class="form-group">
+                <label for="prefix">ศาสนา</label>
+                <select id="prefix" name="prefix" required>
+                    <option value="" disabled selected></option>
+                    <option value="นาย">พุทธ</option>
+                    <option value="นาง">คริสต์</option>
+                    <option value="นางสาว">อิสลาม</option>
+                    <option value="นางสาว">ฮินดู</option>
+                </select>
+            </div>
     
                 <!-- เบอร์โทร -->
                 <div class="form-group">
@@ -174,7 +225,7 @@
                     <label for="terms1">ข้าพเจ้าได้อ่าน ทำความเข้าใจ และยอมรับ ข้อกำหนดและเงื่อนไขการใช้งานเว็บไซต์ นี้ และรับทราบว่าบริษัทฯ เก็บรวบรวม ใช้ เปิดเผย และเก็บรักษาข้อมูลส่วนบุคคลของข้าพเจ้าตามที่ กำหนดไว้ใน ประกาศความเป็นส่วนตัว นี้</label>
                     <br>
                     <input type="checkbox" id="terms2" name="terms2">
-                    <label for="terms2">ข้าพเจ้ายินยอมให้บริษัทฯ เก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าสำหรับ เสนอข่าวสารต่างๆ โปรโมชั่น สิทธิประโยชน์ สิทธิพิเศษ (แต่ไม่รวมถึงสิทธิพิเศษที่ถือเป็นคุณ แก่ลูกค้าเป็นหลัก เช่น คูปองส่วนลด หรือ คูปองแทนเงินสด เป็นต้น) รวมถึงข้อมูลเกี่ยวกับ ผลิตภัณฑ์และ/หรือบริการใหม่ๆ ของบริษัทฯ และบริษัทในเครือที่ข้าพเจ้าอาจสนใจ และ ยินยอมให้บริษัทฯ เปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าแก่บริษัทในเครือและผู้ให้บริการ ภายนอกสำหรับประมวลผลและวิเคราะห์ข้อมูล รวมถึงวิจัย ปรับปรุง และพัฒนาผลิตภัณฑ์ และ/หรือบริการของบริษัทฯ และบริษัทในเครือให้เหมาะสมกับความต้องการของข้าพเจ้า ทั้งนี้ การไม่ยินยอมในข้อนี้จะไม่กระทบสิทธิความยินยอมที่ท่านได้เคยให้ไว้ก่อนหน้านี้ เว้นแต่ท่านจะได้ใช้สิทธิขอถอนความยินยอมมาแล้ว</label>
+                    <label for="terms2">ข้าพเจ้ายินยอมให้บริษัทฯ เก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าสำหรับ เสนอข่าวสารต่างๆ โปรโมชั่น สิทธิประโยชน์ สิทธิพิเศษ (แต่ไม่รวมถึงสิทธิพิเศษที่ถือเป็นคุณ แก่ลูกค้าเป็นหลัก เช่น คูปองส่วนลด หรือ คูปองแทนเงินสด เป็นต้น) รวมถึงข้อมูลเกี่ยวกับ ผลิตภัณฑ์และ/หรือบริการใหม่ๆ ของบริษัทฯ และบริษัทในเครือที่ข้าพเจ้าอาจสนใจ และ ยินยอมให้บริษัทฯ เปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าแก่บริษัทในเครือและผู้ให้บริการ ภายนอกสำหรับประมวลผลและวิเคราะห์ข้อมูล รวมถึงวิจัย ปรับปรุง และพัฒนาผลิตภัณฑ์ และ/หรือบริการของบริษัทฯ และบริษัทในเครือให้เหมาะสมกับความต้องการของข้าพเจ้า ทั้งนี้ การไม่ยินยอมในข้อนี้จะไม่กระทบสิทธิความยินยอมที่ท่านได้เคยให้ไว้ก่อนหน้านี้ เว้นแต่ท่านจะได้ใช้สิทธิขอถอนความยินยอมมาแล้ว</label>
                 </div>
     
                 <!-- ปุ่มยืนยัน -->
@@ -187,28 +238,37 @@
     <div id="payment-screen" class="container">
         <div class="card">
             <h2>โต๊ะ: 10</h2>
-            <p>package: Regular</p>
-            <p>จำนวนคน: 8</p>
-            <p>ราคารวม: 12000</p>
-            <p>ส่วนลด: 0</p>
-            <p>ยอดสุทธิ: 12000</p>
+            <div class="payment-item">
+                <p>package :</p>
+                <p>Regular</p> <!-- ช่องว่างขวา -->
+                <p></p>
+            </div>
+            <div class="payment-item">
+                <p>จำนวนคน :</p>
+                <p>8</p>
+                <p>คน</p> <!-- ช่องว่างขวา -->
+            </div>
+            <div class="payment-item">
+                <p>ราคารวม :</p>
+                <p>1200</p>
+                <p>บาท</p> 
+            </div>
+            <div class="payment-item">
+                <p>ส่วนลด :</p>
+                <p>0</p>
+                <p>บาท</p> 
+            </div>
+            <div class="payment-item">
+                <p>ยอดสุทธิ :</p>
+                <p>1200</p>
+                <p>บาท</p> 
+            </div>
             <select id="payment-method" class="dropdown">
                 <option value="" disabled selected>เลือกวิธีการชำระเงิน</option>
                 <option value="QR Promptpay">QR Promptpay</option>
                 <option value="บัตรเครดิต / เดบิต">บัตรเครดิต / เดบิต</option>
             </select>
             <button class="btn" onclick="goToSuccess()">ยืนยัน</button>
-        </div>
-    </div>
-
-    <!-- หน้าชำระเงินสำเร็จ -->
-    <div id="success-screen" class="container">
-        <div class="card">
-            <span class="close" onclick="goHome()">X</span>
-            <h2>ชำระเงินสำเร็จ</h2>
-            <p>หมายเลขโต๊ะ: 10</p>
-            <p>จำนวนคน: 8</p>
-            <p>ราคาสุทธิ: 12000</p>
         </div>
     </div>
 
