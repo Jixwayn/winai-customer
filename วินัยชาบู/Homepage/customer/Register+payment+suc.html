@@ -26,6 +26,7 @@
             color: #fff;
             border: none;
             cursor: pointer;
+            border-radius: 8px;
         }
         .btn:hover {
             background-color: #ff600f;
@@ -36,7 +37,7 @@
             padding: 20px;
             margin: 10px auto;
             max-width: 350px;
-            border: 2px solid #000; /* ขอบกรอบสีดำ */
+            border: none; /* ขอบกรอบสีดำ */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เงาขอบ */
         }
         .dropdown, .input {
@@ -95,13 +96,48 @@
         .skip-btn:hover {
             background-color: #bbb; /* สีพื้นหลังเมื่อ hover */
         }
+        .h{
+            margin: 0;
+            font-size: 1.5em;
+            text-align: center;
+        }
+        .shabu-title {
+            font-size: 1.5em;
+            margin-top: 0;
+            text-align: center;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+        .card h2, .card .shabu-title {
+            display: block;
+            margin-bottom: 5px; /* ลดระยะห่างระหว่างข้อความ */
+        }
+        h2 + .shabu-title {
+            margin-top: 0; /* กำหนดระยะห่างของข้อความให้ชิดกัน */
+        }
+        h4 {
+            font-size: 0.8em;
+            font-weight: normal;
+            text-align: left;
+            margin: 0.1;
+        }
+        .input {
+            margin-top: 0.5px;
+        }
+        .separator {
+            border-top: 1px solid #ddd; /* ขีดจางๆ */
+            width: 100%;
+            margin: 20px 0; /* ระยะห่างด้านบนและล่างของขีด */
+        }
     </style>
 </head>
 <body>
     <!-- หน้าถามถึงบัตรสมาชิก -->
     <div id="member-screen" class="container active">
         <div class="card">
-            <h2>คุณได้เป็นสมาชิกของร้าน Winai's Shabu หรือไม่</h2>
+            <h2>คุณได้เป็นสมาชิกของร้าน</h2>
+            <div class="shabu-title">Winai's Shabu หรือไม่</div>
+            <div class="separator"></div>
             <h4>กรุณากรอกข้อมูล</h4>
             <input type="text" id="name" class="input" placeholder="ชื่อ">
             <input type="text" id="name" class="input" placeholder="รหัสผ่าน">
@@ -149,6 +185,7 @@
             <button class="btn" onclick="goToSuccess()">ยืนยัน</button>
         </div>
     </div>
+</div>
 
     <script>
         function validateName() {
