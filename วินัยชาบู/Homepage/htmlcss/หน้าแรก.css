@@ -1,0 +1,432 @@
+body {
+    font-family: "Prompt", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    text-align: left;
+    padding: 2rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0; /* คงขนาด header */
+}
+
+header h1 {
+    margin: 0; /* รีเซ็ต margin เพื่อป้องกันการเบี่ยงเบน */
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+
+nav {
+    background: #ffefe0;
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: #FF6F61;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #FF5722;
+}
+
+.promotion-banner {
+    background-color: #ff5722;
+    color: #fff;
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    flex-grow: 1; /* ขยายส่วนนี้ให้เต็มพื้นที่ */
+    display: flex;
+    flex-direction: column; /* เรียงเนื้อหาในแนวตั้ง */
+    gap: 2rem; /* ระยะห่างระหว่างแต่ละส่วน */
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+
+
+/* ส่วนการตั้งค่าในหน้าจอปกติ */
+.menu-section {
+    display: flex;
+    justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+    align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+    height: 100%; /* ครอบคลุมหน้าจอ */
+}
+/* การตั้งค่า Carousel */
+.menu-carousel {
+    display: flex;
+    overflow-x: auto; /* เปิดการเลื่อนแนวนอน */
+    gap: 1rem;
+    padding: 0 1rem; /* เพิ่มขอบภายในด้านซ้ายและขวา */
+    padding-left: 2rem; /* เพิ่มระยะห่างทางซ้ายมากขึ้น */
+    scroll-snap-type: x mandatory; /* ใช้ snap */
+    scroll-padding-left: 2rem; /* ระยะ snap จากซ้าย */
+    align-items: center;
+}
+
+/* การตั้งค่าของ Item */
+/* การตั้งค่าของ Item */
+.menu-item {
+    flex: 0 0 auto;
+    width: 150px;
+    height: 120px;
+    background-color: #ffe0b2;
+    color: #ff6f00;
+    text-align: center;
+    position: relative; /* กำหนดตำแหน่ง relative เพื่อให้ข้อความใช้ตำแหน่ง absolute ได้ */
+    border-radius: 10px;
+    font-size: 1rem;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin-left: 3.5rem; /* ขยับแต่ละเมนูไปทางขวาเล็กน้อย */
+    overflow: hidden; /* ป้องกันการเลื่อนที่เกิดขึ้น */
+}
+
+.menu-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease; /* ขยายรูปเฉพาะเมื่อ hover */
+}
+
+.menu-item:hover {
+    background-color: #ffab40;
+    transform: scale(1.05); /* ขยายเมื่อ hover */
+}
+.menu-item p {
+    position: absolute;
+    bottom: 10px; /* ให้ข้อความอยู่ที่ด้านล่างของกล่อง */
+    left: 0;
+    right: 0;
+    margin: 0;
+    color: #1c29dd;
+    font-size: 1rem;
+}
+
+/* เมื่อ hover ที่ .menu-item */
+.menu-item:hover {
+    transform: scale(1.05); /* ขยายขนาดเมื่อ hover */
+    background-color: #ffab40; /* เปลี่ยนสีพื้นหลัง */
+}
+
+
+/* เมื่อ hover ที่ .menu-item */
+.menu-item:hover .menu-item-description {
+    color: #ff8c00; /* เปลี่ยนสีเมื่อ hover */
+}
+
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 1.1rem;
+}
+
+footer a {
+    color: #FFAB40;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        gap: 1.5rem;
+    }
+    .menu-button, .review-button {
+        font-size: 1.1rem;
+        padding: 1rem 1.5rem;
+    }
+}
+/* การตั้งค่าสำหรับสี่เหลี่ยมที่เพิ่มใต้แผนผังร้าน */
+#rectangle-under-map {
+    display: flex;
+    justify-content: center; /* จัดสี่เหลี่ยมให้อยู่กลางจอ */
+    margin-top: 2rem;
+}
+
+.rectangle-box {
+    width: 400px; /* ความกว้างของสี่เหลี่ยม */
+    height: 500px; /* ความสูงของสี่เหลี่ยม */
+    background-color: rgb(203, 203, 203); /* สีพื้นหลัง */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #333; /* ขอบสี่เหลี่ยม */
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    border-radius: 5px; /* ขอบโค้ง */
+    position: relative; /* กำหนดให้ .rectangle-box เป็นตำแหน่งพื้นฐานสำหรับ .table */
+}
+
+.rectangle-box p {
+    margin: 0;
+}
+
+/* การตั้งค่า table ให้อยู่ภายในสี่เหลี่ยม */
+.table {
+    position: absolute;
+    background-color: #738ffe;
+    border: 1px solid black;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: white;
+    border-radius: 5px;
+}
+
+/* การตั้งตำแหน่งของโต๊ะภายในสี่เหลี่ยม */
+.table1 {
+    top: 30%; /* ค่าตั้งจากบน 30% ของความสูงของสี่เหลี่ยม */
+    left: 32%; /* ค่าตั้งจากซ้าย 32% ของความกว้างของสี่เหลี่ยม */
+    width: 9%;
+    height: 10%;
+}
+.table2 {
+    top: 40%;
+    left: 23%;
+    width: 18%;
+    height: 10%;
+}
+.table3 {
+    top: 50%;
+    left: 23%;
+    width: 18%;
+    height: 10%;
+}
+
+.table4 {
+    top: 60%;
+    left: 23%;
+    width: 18%;
+    height: 10%;
+}
+
+.table5 {
+    top: 20%;
+    left: 54%;
+    width: 9%;
+    height: 10%;
+}
+.table6 {
+    top: 30%;
+    left: 54%;
+    width: 9%;
+    height: 10%;
+}
+.table7 {
+    top: 40%;
+    left: 54%;
+    width: 9%;
+    height: 10%;
+}
+.table8 {
+    top: 50%;
+    left: 54%;
+    width: 9%;
+    height: 10%;
+}
+.table9 {
+    top: 60%;
+    left: 54%;
+    width: 9%;
+    height: 10%;
+}
+.table10 {
+    top: 20%;
+    left: 65%;
+    width: 9%;
+    height: 10%;
+}
+.table11 {
+    top: 30%;
+    left: 65%;
+    width: 9%;
+    height: 10%;
+}
+.table12 {
+    top: 40%;
+    left: 65%;
+    width: 9%;
+    height: 10%;
+}
+.table13 {
+    top: 50%;
+    left: 65%;
+    width: 9%;
+    height: 10%;
+}
+.table14 {
+    top: 60%;
+    left: 65%;
+    width: 9%;
+    height: 10%;
+}
+.table15 {
+    top: 15%;
+    left: 90%;
+    width: 9%;
+    height: 10%;
+}
+.table16 {
+    top: 25%;
+    left: 90%;
+    width: 9%;
+    height: 10%;
+}
+.table17 {
+    top: 35%;
+    left: 90%;
+    width: 9%;
+    height: 10%;
+}
+.table18 {
+    top: 45%;
+    left: 90%;
+    width: 9%;
+    height: 10%;
+}
+.table19 {
+    top: 55%;
+    left: 90%;
+    width: 9%;
+    height: 10%;
+}
+.table20 {
+    top: 65%;
+    left: 90%;
+    width: 9%;
+    height: 10%;
+}
+.rectangle {
+    position: absolute; /* ใช้ตำแหน่งแบบ absolute */
+    width: 250px;
+    height: 50px;
+    background-color: #72d572;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-family: Arial, sans-serif;
+
+    /* ปรับตำแหน่ง */
+    top: 5%; /* ด้านบน 50% */
+    left: 31.5%; /* ด้านซ้าย 50% */
+    transform: translate(-50%, -50%); /* เลื่อนจุดกึ่งกลาง */
+}
+
+.rectangle1 {
+    position: absolute; /* ใช้ตำแหน่งแบบ absolute */
+    width: 50px;
+    height: 310px;
+    background-color: #72d572;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-family: Arial, sans-serif;
+
+    /* ปรับตำแหน่ง */
+    top: 42%; /* ด้านบน 50% */
+    left: 6.5%; /* ด้านซ้าย 50% */
+    transform: translate(-50%, -50%); /* เลื่อนจุดกึ่งกลาง */
+}
+
+.rectangle2 {
+    position: absolute; /* ใช้ตำแหน่งแบบ absolute */
+    width: 100px;
+    height: 30px;
+    background-color: #72d572;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-family: Arial, sans-serif;
+
+    /* ปรับตำแหน่ง */
+    top: 10.5%; /* ด้านบน 50% */
+    left: 87.5%; /* ด้านซ้าย 50% */
+    transform: translate(-50%, -50%); /* เลื่อนจุดกึ่งกลาง */
+}
+.rectangle3 {
+    position: absolute; /* ใช้ตำแหน่งแบบ absolute */
+    width: 150px;
+    height: 20px;
+    background-color: #72d572;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-family: Arial, sans-serif;
+
+    /* ปรับตำแหน่ง */
+    top: 100%; /* ด้านบน 50% */
+    left: 50%; /* ด้านซ้าย 50% */
+    transform: translate(-50%, -50%); /* เลื่อนจุดกึ่งกลาง */
+}
+/* CSS for Review Button */
+#review {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh; /* Full viewport height */
+}
+
+.review-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff6600; /* Orange color */
+    color: #ffffff; /* White text */
+    text-decoration: none; /* Remove underline */
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Hover effect */
+}
+
+.review-button:hover {
+    background-color: #e65500; /* Darker orange on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}

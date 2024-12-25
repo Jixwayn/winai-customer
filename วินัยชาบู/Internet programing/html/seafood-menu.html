@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เมนูสินค้า</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/menu.css">
+
+
+    <!-- Preload CSS -->
+    <link rel="preload" href="/css/menu.css" as="style">
+
+    <!-- Preload รูปภาพหมวดหมู่ -->
+    <link rel="preload" href="/img/meat/beef.jpg" as="image">
+    <link rel="preload" href="/img/vegatable/vegatable.jpg" as="image">
+    <link rel="preload" href="/img/seafood/seafood.jpg" as="image">
+    <link rel="preload" href="/img/other/other.jpg" as="image">
+
+    <!-- Preload รูปภาพสินค้า -->
+    <link rel="preload" href="/img/seafood/S__7774211.jpg" as="image">
+    <link rel="preload" href="/img/seafood/S__7774213.jpg" as="image">
+    <link rel="preload" href="/img/seafood/S__7774217.jpg" as="image">
+    <link rel="preload" href="/img/seafood/S__7774219.jpg" as="image">
+    <link rel="preload" href="/img/seafood/S__7774226.jpg" as="image">
+    <link rel="preload" href="/img/seafood/S__7774427.jpg" as="image">
+
+
+    <style>
+        /* ปรับขนาดตามหน้าจอ */
+        @media screen and (max-width: 393px) {
+            body {
+                width: 100%;
+            }
+
+            .header,
+            .categories,
+            .product-grid {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <p>ขุนช้างชาบู</p>
+        </div>
+    </nav>
+
+    <!-- ส่วน Header -->
+    <div class="header">
+        <span class="back-button">←</span>
+        <div class="search-bar">
+            <input type="text" placeholder="ค้นหา">
+            <button>🔍</button>
+        </div>
+    </div>
+
+    <!-- หมวดหมู่สินค้า -->
+    <div class="categories">
+        <div class="category">
+            <a href="meat-menu.html" class="link-to-category-food">
+                <img src="/img/meat/beef.jpg" alt="เนื้อสัตว์">
+                <p>เนื้อสัตว์</p>
+            </a>
+        </div>
+
+        <div class="category">
+            <a href="vegatable-menu.html" class="link-to-category-food">
+                <img src="/img/vegatable/vegatable.jpg" alt="ผักสด">
+                <p>ผักสด</p>
+            </a>
+        </div>
+
+        <div class="category">
+            <a href="seafood-menu.html" class="link-to-category-food">
+                <img src="/img/seafood/seafood.jpg" alt="ทะเล">
+                <p>ทะเล</p>
+            </a>
+        </div>
+
+        <div class="category">
+            <a href="other-menu.html" class="link-to-category-food">
+                <img src="/img/other/other.jpg" alt="อื่นๆ">
+                <p>อื่นๆ</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- รายการสินค้า -->
+    <div class="product-grid">
+        <div class="product">
+            <a href="#" class="product-link">
+                <img src="/img/seafood/S__7774211.jpg" alt="หอยแมลงภู่นิวซีแลนด์">
+                <div class="container">
+                    <p>หอยแมลงภู่นิวซีแลนด์</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="product">
+            <a href="#" class="product-link">
+                <img src="/img/seafood/S__7774213.jpg" alt="เนื้อกุ้งสด">
+                <div class="container">
+                    <p>เนื้อกุ้งสด</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="product">
+            <a href="#" class="product-link">
+                <img src="/img/seafood/S__7774217.jpg" alt="ปลาหมึกสด">
+                <div class="container">
+                    <p>ปลาหมึกสด</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="product">
+            <a href="#" class="product-link">
+                <img src="/img/seafood/S__7774219.jpg" alt="เนื้อปลากะพงสด">
+                <div class="container">
+                    <p>เนื้อปลากะพงสด</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="product">
+            <a href="#" class="product-link">
+                <img src="/img/seafood/S__7774226.jpg" alt="เนื้อปูพรีเมียม">
+                <div class="container">
+                    <p>เนื้อปูพรีเมียม</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="product">
+            <a href="#" class="product-link">
+                <img src="/img/seafood/S__7774427.jpg" alt="แซลมอนนอร์เวย์">
+                <div class="container">
+                    <p>แซลมอนนอร์เวย์</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>

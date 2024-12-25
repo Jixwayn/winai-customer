@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เมนูสินค้า</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="menu.css">
+
+    <!-- Preload CSS -->
+    <link rel="preload" href="menu.css" as="style">
+
+    <!-- Preload Resource -->
+    <link rel="preload" href="/img/meat/beef.jpg" as="image">
+    <link rel="preload" href="/img/vegatable/vegatable.jpg" as="image">
+    <link rel="preload" href="/img/seafood/seafood.jpg" as="image">
+    <link rel="preload" href="/img/other/other.jpg" as="image">
+
+    <!-- Preload หน้าที่เกี่ยวข้อง -->
+    <link rel="preload" href="meat-menu.html" as="document">
+    <link rel="preload" href="vegatable-menu.html" as="document">
+    <link rel="preload" href="seafood-menu.html" as="document">
+    <link rel="preload" href="other-menu.html" as="document">
+
+    <style>
+        /* ปรับขนาดตามหน้าจอ */
+        @media screen and (max-width: 393px) {
+            body {
+                width: 100%;
+            }
+
+            .header,
+            .categories,
+            .product-grid {
+                max-width: 100%;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div class="container1">
+        <header>
+            <h1>Winai's Shabu</h1>
+        </header>
+        <div class="promotion-banner">
+            <p>โปรโมชันพิเศษสำหรับเดือนนี้! ลดราคาสุดคุ้มทุกวันจันทร์-พฤหัสบดี</p>
+        </div>
+
+    <!-- ส่วน Top Bar -->
+<div class="top-bar">
+    <span class="back-button">←</span>
+    <div class="search-bar">
+        <input type="text" placeholder="ค้นหา">
+        <button>🔍</button>
+    </div>
+</div>
+
+
+    <!-- หมวดหมู่สินค้า -->
+    <div class="categories">
+        <div class="category">
+                <a href="meat-menu.html" class="link-to-category-food">
+                    <img src="../img/meat/beef.jpg" alt="เนื้อสัตว์">
+                    <p>เนื้อสัตว์</p>
+                </a>
+        </div>
+
+        <div class="category">
+            <a href="vegatable-menu.html" class="link-to-category-food">
+                <img src="../img/vegatable/vegatable.jpg" alt="ผักสด">
+                <p>ผักสด</p>
+            </a>
+        </div>
+
+        <div class="category">
+            <a href="seafood-menu.html" class="link-to-category-food">
+                <img src="../img/seafood/seafood.jpg" alt="ทะเล">
+                <p>ทะเล</p>
+            </a>
+        </div>
+
+        <div class="category">
+            <a href="other-menu.html" class="link-to-category-food">
+                <img src="../img/other/other.jpg" alt="อื่นๆ">
+                <p>อื่นๆ</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- รายการสินค้า -->
+    <div class="product-grid">
+        <div class="product">
+            <a href="#" class="product-link">
+                <img src="../img/meat/3.jpg" alt="บัลลังก์เนื้อวากิวญี่ปุ่นชัคโรล">
+                <div class="container">
+                    <p>บัลลังก์เนื้อวากิวญี่ปุ่นชัคโรล</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="product">
+            <a href="#" class="product-link">
+                <img src="../img/meat/4.jpg" alt="เนื้อวัว">
+                <div class="container">
+                    <p>เนื้อวัว</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="product">
+            <a href="#" class="product-link">
+                <img src="../img/meat/5.jpg" alt="เนื้อนำเข้า Australia สไลด์">
+                <div class="container">
+                    <p>เนื้อนำเข้า Australia สไลด์</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="product">
+            <a href="#" class="product-link">
+                <img src="../img/meat/6.jpg" alt="สันนอกหมูสไลด์">
+                <div class="container">
+                    <p>สันนอกหมูสไลด์</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="product">
+            <a href="#" class="product-link">
+                <img src="../img/meat/7.jpg" alt="หมูนุ่ม">
+                <div class="container">
+                    <p>หมูนุ่ม</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="product">
+            <a href="#" class="product-link">
+                <img src="../img/meat/8.jpg" alt="หมูนุ่มโรยงา">
+                <div class="container">
+                    <p>หมูนุ่มโรยงา</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>
